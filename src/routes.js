@@ -1,10 +1,10 @@
-import Home from 'src/views/Home.vue'
-
 export default function (router) {
   router.map({
     '/': {
       name: 'home',
-      component: Home
+      component (resolve) {
+        require(['src/views/Home.vue'], resolve)
+      }
     },
     '/hello': {
       name: 'hello',
