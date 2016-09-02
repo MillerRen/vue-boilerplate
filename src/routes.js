@@ -8,12 +8,11 @@ export default function (router) {
     },
     '/hello': {
       name: 'hello',
-      component(resolve) {
+      component (resolve) {
         require(['src/components/Hello.vue'], resolve)
       }
     }
   })
-
 // router.beforeEach((transition)=>{
 //   transition.next()
 // })
