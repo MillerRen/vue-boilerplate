@@ -10,6 +10,11 @@
 import {navbar} from 'vue-strap'
 
 export default {
+  data: () => {
+    return {
+      showModal: true
+    }
+  },
   components: {
     navbar
   }

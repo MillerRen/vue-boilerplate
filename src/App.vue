@@ -1,12 +1,21 @@
 <template>
-  <div id="app">
     <router-view></router-view>
-  </div>
+    <alert :show.sync="true" type="warning" placement="top" width="40%" dismissable="true">
+      {{message}}
+    </alert>
 </template>
 
 <script>
+import {alert} from 'vue-strap'
+
 export default {
   components: {
+    alert
+  },
+  data: () => {
+    return {
+      message: 'hello'
+    }
   }
 }
 </script>
