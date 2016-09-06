@@ -4,6 +4,7 @@ import store from './vuex/store'
 import { sync } from 'vuex-router-sync'
 import configComponent from './dynamic'
 import configRouter from './routes'
+import 'bootstrap/dist/css/bootstrap.css'
 
 import App from './App'
 
