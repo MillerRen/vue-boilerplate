@@ -1,7 +1,7 @@
 {
-  "name": "test",
+  "name": "vue-boilerplate",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "A Vue.js project includes vue vuex vue-router vue-resource..",
   "author": "Miller Ren <ren12345@126.com>",
   "private": true,
   "scripts": {
