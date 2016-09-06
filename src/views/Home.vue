@@ -17,6 +17,9 @@ export default {
   },
   components: {
     navbar
+  },
+  ready () {
+    this.$root.toast('hello')
   }
 }
 </script>

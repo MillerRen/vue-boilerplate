@@ -1,6 +1,6 @@
 <template>
     <router-view></router-view>
-    <alert :show.sync="true" type="warning" placement="top" width="40%" dismissable="true">
+    <alert :show.sync="message!==''" type="warning" placement="top" width="40%" dismissable="true" duration="3000">
       {{message}}
     </alert>
 </template>
@@ -14,7 +14,12 @@ export default {
   },
   data: () => {
     return {
-      message: 'hello'
+      message: ''
+    }
+  },
+  methods: {
+    toast (message) {
+      this.message = message
     }
   }
 }
