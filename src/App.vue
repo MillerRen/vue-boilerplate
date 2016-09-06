@@ -1,25 +1,41 @@
 <template>
     <router-view></router-view>
-    <alert :show.sync="message!==''" type="warning" placement="top" width="40%" dismissable="true" duration="3000">
-      {{message}}
+    <alert :show.sync="alert.show" type="warning" placement="top" width="40%" dismissable="true" duration="3000">
+      {{alert.message}}
     </alert>
+    <modal :show.sync="modal.show" effect="fade" title="confirm">
+      <div slot="modal-body" class="modal-body">{{alert.message}}</div>
+    </modal>
 </template>
 
 <script>
-import {alert} from 'vue-strap'
+import {alert, modal} from 'vue-strap'
 
 export default {
   components: {
-    alert
+    alert,
+    modal
   },
   data: () => {
     return {
-      message: ''
+      alert: {
+        show: false,
+        message: ''
+      },
+      modal: {
+        show: false,
+        message: 'hello'
+      }
     }
   },
   methods: {
     toast (message) {
-      this.message = message
+      this.alert.show = true
+      this.alert.message = message
+    },
+    confirm (message) {
+      this.modal.show = true
+      this.modal.message = message
     }
   }
 }

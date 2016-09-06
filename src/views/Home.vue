@@ -20,6 +20,7 @@ export default {
   },
   ready () {
     this.$root.toast('hello')
+    this.$root.confirm('are you sure?')
   }
 }
 </script>
