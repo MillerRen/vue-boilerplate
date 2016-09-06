@@ -4,7 +4,7 @@
       {{alert.message}}
     </alert>
     <modal :show.sync="modal.show" effect="fade" title="confirm">
-      <div slot="modal-body" class="modal-body">{{alert.message}}</div>
+      <div slot="modal-body" class="modal-body">{{modal.message}}</div>
     </modal>
 </template>
 
@@ -24,7 +24,7 @@ export default {
       },
       modal: {
         show: false,
-        message: 'hello'
+        message: ''
       }
     }
   },
