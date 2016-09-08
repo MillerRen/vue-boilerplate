@@ -9,8 +9,7 @@
 </template>
 
 <script>
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/css/bootstrap-theme.css'
+import 'bootstrap/less/bootstrap.less'
 import {alert, modal} from 'vue-strap'
 
 export default {
