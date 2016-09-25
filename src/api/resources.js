@@ -8,11 +8,11 @@ Vue.http.options.xhr = {withCredentials: true}
 Vue.http.options.emulateJSON = true
 
 Vue.http.interceptors.push({
-  request(request) {
+  request (request) {
     request.headers = request.headers || {}
     return request
   },
-  response(response) {
+  response (response) {
     return response
   }
 })
