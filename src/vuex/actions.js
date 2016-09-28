@@ -6,7 +6,7 @@ export const setMessage = ({dispatch}, message) => {
 }
 
 export const getMessage = ({dispatch}, message) => {
-  api.getMessage()
+  return api.getMessage()
   .then((response) => {
     dispatch(types.UPDATE_MESSAGE, response.message)
   })
