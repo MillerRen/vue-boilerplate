@@ -7,14 +7,12 @@ Vue.http.options.crossOrigin = true
 Vue.http.options.xhr = {withCredentials: true}
 Vue.http.options.emulateJSON = true
 
-Vue.http.interceptors.push({
-  request (request) {
-    request.headers = request.headers || {}
-    return request
-  },
-  response (response) {
+Vue.http.interceptors.push((request, next) => {
+  request.headers = request.headers || {}
+
+  next((response) => {
     return response
-  }
+  })
 })
 
 export const Message = Vue.resource('/api/messages{/id}')
