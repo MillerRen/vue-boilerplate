@@ -11,9 +11,10 @@
 <script>
 import 'bootstrap/less/bootstrap.less'
 import {alert, modal} from 'vue-strap'
-import 'src/vuex/actions'
+import store from 'src/vuex/store'
 
 export default {
+  store,
   components: {
     alert,
     modal
