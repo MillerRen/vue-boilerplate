@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from './vuex/store'
 import { sync } from 'vuex-router-sync'
-import configComponent from './dynamic'
-import configRouter from './routes'
+import configComponent from './config//dynamic'
+import configRouter from './config/routes'
 
 import App from './App'
 

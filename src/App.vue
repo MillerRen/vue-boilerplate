@@ -10,36 +10,17 @@
 
 <script>
 import 'bootstrap/less/bootstrap.less'
-import {alert, modal} from 'vue-strap'
 import store from 'src/vuex/store'
 
 export default {
   store,
   components: {
-    alert,
-    modal
   },
   data: () => {
     return {
-      alert: {
-        show: false,
-        message: ''
-      },
-      modal: {
-        show: false,
-        message: ''
-      }
     }
   },
   methods: {
-    toast (message) {
-      this.alert.show = true
-      this.alert.message = message
-    },
-    confirm (message) {
-      this.modal.show = true
-      this.modal.message = message
-    }
   }
 }
 </script>
