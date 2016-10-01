@@ -62,7 +62,6 @@
     "less-loader": "^2.2.3",
     "lolex": "^1.4.0",
     "mocha": "^2.4.5",
-    "mockjs": "^1.0.1-beta3",
     "nightwatch": "^0.8.18",
     "ora": "^0.2.0",
     "phantomjs-prebuilt": "^2.1.3",
