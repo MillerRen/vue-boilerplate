@@ -1,6 +1,13 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="modal">
+    <div class="modal-backdrop fade in"></div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">header</div>
+        <div class="modal-body">body</div>
+        <div class="modal-footer">footer</div>
+      </div>
+    </div>
   </div>
 </template>
 

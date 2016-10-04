@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar navbar-default">
+  <div class="navbar navbar-default navbar-static-top">
     <div class="container">
       <div class="navbar-header">
         <a v-link="{path: '/'}" class="navbar-brand">首页</a>
