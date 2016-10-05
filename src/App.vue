@@ -1,7 +1,6 @@
 <template>
     <router-view></router-view>
-    <alert :show.sync="alert.show" type="warning" placement="top" width="40%" dismissable="true" duration="3000">
-      {{alert.message}}
+    <alert type="warning" placement="top" width="40%" dismissable="true" duration="3000">
     </alert>
     <modal :show.sync="modal.show" effect="fade" title="confirm">
       <div slot="modal-body" class="modal-body">{{modal.message}}</div>
