@@ -1,8 +1,9 @@
-import { Message } from './resources'
-import './mock-data'
+import * as Res from './resources'
+
+// process.env.NODE_ENV !== 'production' && require('./mock-data')
 
 export default {
-  getMessage (params) {
-    return Message.get(params)
+  getAccount (params) {
+    return Res.Account.save(params)
   }
 }

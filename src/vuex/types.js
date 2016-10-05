@@ -1,1 +1,0 @@
-export const UPDATE_MESSAGE = 'UPDATE_MESSAGE'

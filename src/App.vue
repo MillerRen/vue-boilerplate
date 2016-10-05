@@ -1,29 +1,25 @@
 <template>
+  <div id="app">
     <router-view></router-view>
-    <alert type="warning" placement="top" width="40%" dismissable="true" duration="3000">
-    </alert>
-    <modal :show.sync="modal.show" effect="fade" title="confirm">
-      <div slot="modal-body" class="modal-body">{{modal.message}}</div>
-    </modal>
+  </div>
 </template>
 
 <script>
-import 'bootstrap/less/bootstrap.less'
-import store from 'src/vuex/store'
+import Hello from './components/Hello'
 
 export default {
-  store,
   components: {
-  },
-  data: () => {
-    return {
-    }
-  },
-  methods: {
+    Hello
   }
 }
 </script>
 
 <style>
+html {
+  height: 100%;
+}
 
+body {
+  height: 100%;
+}
 </style>
