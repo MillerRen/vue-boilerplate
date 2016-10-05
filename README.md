@@ -1,6 +1,6 @@
 # vue-boilerplate
 
-> Vue模板，基于webpack和es6，包含vuex，vue-router，vue-resource
+> Vue 2.0 模板，基于webpack和es6，包含vuex，vue-router，vue-resource
 
 ## Build Setup
 
