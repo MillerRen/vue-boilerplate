@@ -4,6 +4,6 @@ import * as Res from './resources'
 
 export default {
   getAccount (params) {
-    return Res.Account.save(params)
+    return Res.Account.get(params)
   }
 }

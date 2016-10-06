@@ -15,7 +15,7 @@ export default {
     getAccount: 'getAccount'
   }),
   created () {
-    this.getAccount()
+    this.getAccount({id: 'me'})
   }
 }
 </script>

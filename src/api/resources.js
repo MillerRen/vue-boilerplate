@@ -18,4 +18,4 @@ Vue.http.interceptors.push((request, next) => {
 
 export const Message = Vue.resource(API_ROOT + '/messages{/id}')
 
-export const Account = Vue.resource(API_ROOT + '/account')
+export const Account = Vue.resource(API_ROOT + '/account{/id}')
