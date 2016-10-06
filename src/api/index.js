@@ -1,6 +1,8 @@
 import * as Res from './resources'
 
-process.env.NODE_ENV !== 'production' && require('./mock-data')
+if (process.env.NODE_ENV !== 'production') {
+  require('./mock-data')
+}
 
 export default {
   getAccount (params) {
