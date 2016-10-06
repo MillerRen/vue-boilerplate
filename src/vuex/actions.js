@@ -1,5 +1,12 @@
-import * as api from 'src/api'
+import api from 'src/api'
+import * as types from 'src/vuex/types'
 
-export function getAccount (params) {
-  return api.get(params)
+export function getAccount ({commit, state}, params) {
+  return api.getAccount(params)
+  .then((response) => {
+    commit(types.GET_ACCOUNT_SUCCESS, response.data)
+  })
+  .catch((response) => {
+    commit(types.GET_ACCOUNT_FAIL, response.data)
+  })
 }

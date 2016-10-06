@@ -1,13 +1,21 @@
 <template>
 <div class="view-home">
-home
+home{{me}}
 </div>
 </template>
 
 <script>
+import {mapGetters, mapActions} from 'vuex'
+
 export default {
+  computed: mapGetters({
+    me: 'me'
+  }),
+  methods: mapActions({
+    getAccount: 'getAccount'
+  }),
   created () {
-    console.log('created')
+    this.getAccount()
   }
 }
 </script>
