@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
-import {API_ROOT} from 'src/config/constants'
+
+const API_ROOT = process.env.API_ROOT
 
 Vue.use(VueResource)
 
