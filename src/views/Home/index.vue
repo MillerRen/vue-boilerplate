@@ -1,6 +1,6 @@
 <template>
 <div class="view-home">
-home{{me}}
+home
 </div>
 </template>
 
