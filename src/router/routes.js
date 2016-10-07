@@ -1,10 +1,10 @@
 const routes = [
   {
     path: '/',
-    component: (resolve) => {
-      require(['views/Home'], (Home) => {
-        resolve(Home)
-      })
+    components: {
+      default: resolve => require(['views/Home'], resolve),
+      header: resolve => require(['views/Layout/Navbar.vue'], resolve),
+      footer: resolve => require(['views/Layout/Footer.vue'], resolve)
     }
   }
 ]
