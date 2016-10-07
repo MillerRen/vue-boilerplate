@@ -1,4 +1,7 @@
 export const me = (state) => {
-  console.log('me')
   return state.account.account
+}
+
+export const loggedIn = (state) => {
+  return state.account.loggedIn
 }

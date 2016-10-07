@@ -1,6 +1,6 @@
 <template>
 <div class="view-home">
-home
+home<hello></hello>
 </div>
 </template>
 

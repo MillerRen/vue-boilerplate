@@ -6,6 +6,8 @@ import VuexRouterSync from 'vuex-router-sync'
 import router from './router'
 import store from 'src/vuex'
 
+import 'src/config/components'
+
 import App from './App'
 
 VuexRouterSync.sync(store, router)

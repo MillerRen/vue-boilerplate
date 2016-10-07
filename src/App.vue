@@ -7,16 +7,20 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
   components: {
   },
+  computed: mapGetters({
+    isLoggedIn: 'loggedIn'
+  }),
   methods: {
     loggedIn () {
-      return false
+      return this.isLoggedIn
     }
   },
   created () {
-    console.log(this)
   }
 }
 </script>
