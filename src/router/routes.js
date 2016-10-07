@@ -10,6 +10,7 @@ const routes = [
   },
   {
     path: '/profile',
+    auth: true,
     meta: {
       requiresAuth: true
     },
