@@ -9,6 +9,14 @@
 <script>
 export default {
   components: {
+  },
+  methods: {
+    loggedIn () {
+      return false
+    }
+  },
+  created () {
+    console.log(this)
   }
 }
 </script>
