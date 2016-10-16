@@ -2,9 +2,11 @@ import Vue from 'vue'
 import {API_ROOT} from 'src/config/constants'
 
 import me from './data/me.json'
+import auth from './data/auth.json'
 
 const data = {
-  '/accounts/me': me
+  '/accounts/me': me,
+  '/auth/local': auth
 }
 
 Vue.http.interceptors.push((request, next) => {

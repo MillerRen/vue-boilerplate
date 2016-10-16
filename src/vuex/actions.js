@@ -12,11 +12,11 @@ export function getAccount ({commit, state}, params) {
 }
 
 export function login ({commit}, params) {
-  return API.Account.save(params)
+  return API.Auth.login(params)
   .then((response) => {
-    commit(types.LOGIN_SUCCESS, response.body)
+    commit(types.AUTH_LOGIN_SUCCESS, response.body)
   })
   .catch((response) => {
-    commit(types.LOGIN_FAIL, response.body)
+    commit(types.AUTH_LOGIN_FAIL, response.body)
   })
 }

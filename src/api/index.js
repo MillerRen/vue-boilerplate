@@ -23,4 +23,11 @@ if (process.env.NODE_ENV !== 'production') {
 
 export const Message = Vue.resource(API_ROOT + '/messages{/id}')
 
-export const Account = Vue.resource(API_ROOT + '/accounts/{id}')
+export const Account = Vue.resource(API_ROOT + '/accounts{/id}')
+
+export const Auth = Vue.resource(API_ROOT + '/auth', {}, {
+  login: {
+    method: 'post',
+    url: '/auth/local'
+  }
+})

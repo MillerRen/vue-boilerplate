@@ -5,6 +5,7 @@ import * as actions from 'src/vuex/actions'
 import * as getters from 'src/vuex/getters'
 
 import account from 'src/vuex/modules/account'
+import auth from 'src/vuex/modules/auth'
 
 Vue.use(Vuex)
 
@@ -14,7 +15,8 @@ const store = new Vuex.Store({
   actions,
   getters,
   modules: {
-    account
+    account,
+    auth
   },
   strict: false,
   plugins: debug ? [createLogger()] : []
