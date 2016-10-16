@@ -7,5 +7,8 @@ if (process.env.NODE_ENV !== 'production') {
 export default {
   getAccount (params) {
     return Res.Account.get(params)
+  },
+  login (params) {
+    return Res.Account.save(params)
   }
 }

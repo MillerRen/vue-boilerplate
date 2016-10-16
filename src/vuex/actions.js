@@ -10,3 +10,13 @@ export function getAccount ({commit, state}, params) {
     commit(types.GET_ACCOUNT_FAIL, response.body)
   })
 }
+
+export function login ({commit}, params) {
+  return api.login(params)
+  .then((response) => {
+    commit(types.LOGIN_SUCCESS, response.body)
+  })
+  .catch((response) => {
+    commit(types.LOGIN_FAIL, response.body)
+  })
+}
