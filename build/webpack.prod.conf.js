@@ -12,6 +12,10 @@ var env = process.env.NODE_ENV === 'testing'
 
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
+    preLoaders: [{
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+    }],
     loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,

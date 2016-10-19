@@ -1,5 +1,6 @@
 <template>
 <div class="view-home">
+<img src="../../assets/awesome-vue.png">
 <hello></hello>
 </div>
 </template>
