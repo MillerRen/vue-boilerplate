@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "vue": "^2.0.1",
     "vue-auth": "^2.0.0-alpha.1",
     "vue-resource": "^1.0.3",
