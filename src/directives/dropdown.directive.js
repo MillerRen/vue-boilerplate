@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import {toggle} from './dom-classes'
+import {toggle} from 'src/utils/dom-classes'
 
 Vue.directive('dropdown', {
   bind (el, binding, vnode) {
