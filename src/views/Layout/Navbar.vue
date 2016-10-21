@@ -17,7 +17,11 @@
           <a href="javascript:void(0)" class="dropdown-toggle">{{me.name}}</a>
           <ul class="dropdown-menu">
             <router-link tag="li" to="/profile">
-              <a>Profile</a>
+              <a><i class="glyphicon glyphicon-user"></i> Profile</a>
+            </router-link>
+            <li class="divider"></li>
+            <router-link tag="li" to="/logout" >
+              <a><i class="glyphicon glyphicon-off"></i> Logout</a>
             </router-link>
           </ul>
         </li>
