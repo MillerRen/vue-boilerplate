@@ -8,6 +8,7 @@ import router from './router'
 import store from 'src/vuex'
 
 import 'src/config/components'
+import 'src/directives'
 
 import App from './App'
 
