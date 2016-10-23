@@ -27,6 +27,7 @@ export default {
 
 <style lang="less">
 @import '~bootstrap/less/bootstrap.less';
+@import './theme/default.less';
 
 .app {
   min-height: 100%;
