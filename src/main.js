@@ -9,6 +9,7 @@ import store from 'src/vuex'
 
 import 'src/config/components'
 import 'src/directives'
+import 'src/validators'
 
 import App from './App'
 

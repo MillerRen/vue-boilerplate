@@ -7,13 +7,15 @@
            <div class="panel panel-default">
             <div class="panel-body">
               <form class="form form-login" @submit.prevent="login(account)">
-                <div class="form-group">
+                <div class="form-group" :class="{'has-error': errors.has('email')}">
                   <label for="">name</label>
-                  <input type="text" class="form-control" v-model="account.name" placeholder="name" />
+                  <input type="text" name="email" class="form-control" placeholder="name" v-model="account.name" v-validate data-rules="required|email" />
+                  <p class="help-block">{{errors.first('email')}}</p>
                 </div>
-                <div class="form-group">
+                <div class="form-group" :class="{'has-error': errors.has('password')}">
                   <label for="">password</label>
-                  <input type="text" class="form-control" v-model="account.password" placeholder="password" />
+                  <input type="text" class="form-control" name="password" placeholder="password" v-model="account.password" v-validate data-rules="required" />
+                  <p class="help-block">{{errors.first('password')}}</p>
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary btn-block">login</button>
@@ -37,9 +39,16 @@ export default {
       account: {}
     }
   },
-  methods: mapActions({
-    'login': 'login'
-  })
+  methods: {
+    login () {
+      this.$validator.validateAll()
+      if (this.errors.any()) return
+      this.callLogin()
+    },
+    ...mapActions({
+      'callLogin': 'login'
+    })
+  }
 }
 </script>
 
