@@ -16,6 +16,9 @@ const routes = [
     path: '/login',
     component: resolve => require(['views/Account/Login.vue'], resolve)
   },
+  { path: '/logout',
+    component: resolve => require(['views/Account/Logout.vue'], resolve)
+  },
   {
     path: '*',
     redirect: '/'

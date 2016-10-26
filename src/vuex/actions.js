@@ -20,3 +20,7 @@ export function login ({commit}, params) {
     commit(types.AUTH_LOGIN_FAIL, response.body)
   })
 }
+
+export function logout ({commit}, params) {
+  commit(types.LOGOUT)
+}

@@ -9,6 +9,10 @@ const mutations = {
     state.token = data.token
   },
   [types.AUTH_LOGIN_FAIL] (state, err) {
+    state.token = ''
+  },
+  [types.LOGOUT] (state, err) {
+    state.token = ''
   }
 }
 
