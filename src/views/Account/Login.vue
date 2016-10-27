@@ -39,6 +39,11 @@ export default {
       account: {}
     }
   },
+  computed: {
+    redirect () {
+      return this.$route.query.redirect || '/'
+    }
+  },
   methods: {
     login () {
       this.$validator.validateAll()
@@ -47,9 +52,10 @@ export default {
       .then((response) => {
         return this.getAccount({id: 'me'})
       })
-      .catch((response) => {
-        console.log('login fail', response)
+      .then((response) => {
+        this.$router.push(this.redirect)
       })
+      .catch(() => {})
     },
     ...mapActions({
       'callLogin': 'login',

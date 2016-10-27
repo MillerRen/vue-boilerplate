@@ -44,6 +44,7 @@ export default {
   }),
   created () {
     this.isLoggedIn && this.getAccount({id: 'me'})
+    .catch(() => {})
   }
 }
 </script>

@@ -10,7 +10,9 @@ Vue.http.options.xhr = {withCredentials: true}
 Vue.http.options.emulateJSON = true
 
 Vue.http.interceptors.push((request, next) => {
+  const token = 'Bearer ' + window.localStorage.getItem('token') || ''
   request.headers = request.headers || {}
+  request.headers.set('Authorization', token)
   next((response) => {
     return response
   })
