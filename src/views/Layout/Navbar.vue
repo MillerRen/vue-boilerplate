@@ -43,7 +43,7 @@ export default {
     getAccount: 'getAccount'
   }),
   created () {
-    // this.getAccount({id: 'me'})
+    this.isLoggedIn && this.getAccount({id: 'me'})
   }
 }
 </script>
