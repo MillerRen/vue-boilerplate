@@ -27,8 +27,6 @@ export default {
   },
   methods: {
     logout () {
-      this.$root.$auth.setToken(undefined)
-      this.$root.$auth.setUser(undefined)
       this.callLogout()
     },
     ...mapActions({

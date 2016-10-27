@@ -14,7 +14,7 @@
                 </div>
                 <div class="form-group" :class="{'has-error': errors.has('password')}">
                   <label for="">password</label>
-                  <input type="text" class="form-control" name="password" placeholder="password" v-model="account.password" v-validate data-rules="required" />
+                  <input type="password" class="form-control" name="password" placeholder="password" v-model="account.password" v-validate data-rules="required" />
                   <p class="help-block">{{errors.first('password')}}</p>
                 </div>
                 <div class="form-group">
@@ -45,14 +45,10 @@ export default {
       if (this.errors.any()) return
       this.callLogin()
       .then((response) => {
-        this.$root.$auth.setToken(response.body.token)
         return this.getAccount({id: 'me'})
       })
-      .then((response) => {
-        this.$root.$auth.setUserData(response.body)
-      })
       .catch((response) => {
-        console.log('fail', response)
+        console.log('login fail', response)
       })
     },
     ...mapActions({

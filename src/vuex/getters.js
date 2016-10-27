@@ -3,5 +3,5 @@ export const me = (state) => {
 }
 
 export const loggedIn = (state) => {
-  return state.account.loggedIn
+  return !!state.auth.token
 }
