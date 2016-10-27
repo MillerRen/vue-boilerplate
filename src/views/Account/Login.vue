@@ -44,9 +44,20 @@ export default {
       this.$validator.validateAll()
       if (this.errors.any()) return
       this.callLogin()
+      .then((response) => {
+        this.$root.$auth.setToken(response.body.token)
+        return this.getAccount({id: 'me'})
+      })
+      .then((response) => {
+        this.$root.$auth.setUserData(response.body)
+      })
+      .catch((response) => {
+        console.log('fail', response)
+      })
     },
     ...mapActions({
-      'callLogin': 'login'
+      'callLogin': 'login',
+      'getAccount': 'getAccount'
     })
   }
 }
