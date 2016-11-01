@@ -1,8 +1,6 @@
 <template>
 <div class="view-home">
-  <navbar></navbar>
   <jumbotron></jumbotron>
-  <Footer></Footer>
 </div>
 </template>
 
