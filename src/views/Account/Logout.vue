@@ -12,7 +12,7 @@
         </div>
       </div>
     </div> 
-    <foot></foot>
+    <Footer></Footer>
   </div>
 </template>
 
