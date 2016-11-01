@@ -1,7 +1,9 @@
 <template>
   <div id="app" class="app">
     <router-view name="header"></router-view>
-    <router-view class="view"></router-view>
+    <transition name="router" mode="out-in">
+    <router-view class="view router-view"></router-view>
+    </transition>
     <router-view name="footer"></router-view>
   </div>
 </template>
@@ -40,7 +42,7 @@ export default {
 <style lang="less">
 @import '~bootstrap/less/bootstrap.less';
 @import './theme/default.less';
-
+@import './router/transition.less';
 .app {
   min-height: 100%;
 }
