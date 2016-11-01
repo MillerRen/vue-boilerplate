@@ -3,14 +3,15 @@
 import Vue from 'vue'
 import VuexRouterSync from 'vuex-router-sync'
 
-import router from './router'
-import store from 'src/vuex'
+import App from './App'
 
-import 'src/config/components'
+import 'src/components/global'
+import 'src/components/async'
 import 'src/directives'
 import 'src/validators'
 
-import App from './App'
+import router from './router'
+import store from 'src/vuex'
 
 VuexRouterSync.sync(store, router)
 

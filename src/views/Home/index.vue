@@ -2,7 +2,7 @@
 <div class="view-home">
   <navbar></navbar>
   <jumbotron></jumbotron>
-  <foot></foot>
+  <Footer></Footer>
 </div>
 </template>
 
