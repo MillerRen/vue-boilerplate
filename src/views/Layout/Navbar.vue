@@ -2,9 +2,9 @@
 <div class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
-    <a href="" class="navbar-brand">
+    <router-link to="/" class="navbar-brand">
     <img src="../../assets/logo.png" alt="brand" class="img-responsive"> Vue-boilerplate
-    </a>
+    </router-link>
     </div>
     <div class="navbar-collapse">
       <ul v-if="!isLoggedIn" class="nav navbar-nav navbar-right">
