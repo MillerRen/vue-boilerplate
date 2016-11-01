@@ -45,6 +45,12 @@ export default {
 @import '~bootstrap/less/bootstrap.less';
 @import './theme/default.less';
 @import './router/transition.less';
+
+html,
+body {
+  height: 100%;
+}
+
 .app {
   min-height: 100%;
 }
