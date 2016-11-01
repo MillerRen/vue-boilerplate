@@ -14,8 +14,6 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "less": "^2.7.1",
-    "less-loader": "^2.2.3",
     "vee-validate": "^2.0.0-beta.13",
     "vue": "^2.0.1",
     "vue-auth": "^2.0.0-alpha.1",
@@ -64,6 +62,8 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.7.0",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
     "lolex": "^1.4.0",
     "mocha": "^3.1.0",
     "nightwatch": "^0.9.8",
