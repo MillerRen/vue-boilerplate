@@ -16,7 +16,6 @@
     "bootstrap": "^3.3.7",
     "vee-validate": "^2.0.0-beta.13",
     "vue": "^2.0.1",
-    "vue-auth": "^2.0.0-alpha.1",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.0",
     "vuex": "^2.0.0",
