@@ -8,8 +8,20 @@
 
 <script>
 import {mapGetters} from 'vuex'
+import router from './router'
+import store from 'src/vuex'
+import VuexRouterSync from 'vuex-router-sync'
+
+import 'src/components/global'
+import 'src/components/async'
+import 'src/directives'
+import 'src/validators'
+
+VuexRouterSync.sync(store, router)
 
 export default {
+  router,
+  store,
   components: {
   },
   computed: mapGetters({
