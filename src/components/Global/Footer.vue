@@ -1,11 +1,19 @@
 <template>
 <div class="footer">
   <div class="container text-center">
-    <p class="text-muted">Vue-boilerplate@0.1.1 powered by Vue</p>
+    <p class="text-muted">Vue-boilerplate@{{version}} powered by Vue</p>
   </div>
 </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  data () {
+    return {
+      version: process.env.VERSION
+    }
+  }
+}
+</script>
 
 <style></style>
