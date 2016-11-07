@@ -7,8 +7,8 @@
             <div class="panel-body">
               <form class="form form-login" @submit.prevent="login(account)">
                 <div class="form-group" :class="{'has-error': errors.has('email')}">
-                  <label for="">name</label>
-                  <input type="text" name="email" class="form-control" placeholder="name" v-model="account.name" v-validate data-rules="required|email" />
+                  <label for="">nemailame</label>
+                  <input type="text" name="email" class="form-control" placeholder="name" v-model="account.email" v-validate data-rules="required|email" />
                   <p class="help-block">{{errors.first('email')}}</p>
                 </div>
                 <div class="form-group" :class="{'has-error': errors.has('password')}">
@@ -46,7 +46,7 @@ export default {
     login () {
       this.$validator.validateAll()
       if (this.errors.any()) return
-      this.callLogin()
+      this.callLogin(this.account)
       .then((response) => {
         return this.getAccount({id: 'me'})
       })

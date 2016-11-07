@@ -10,9 +10,9 @@ Vue.http.options.xhr = {withCredentials: true}
 Vue.http.options.emulateJSON = true
 
 Vue.http.interceptors.push((request, next) => {
-  const token = 'Bearer ' + window.localStorage.getItem('token') || ''
+  const token = window.localStorage.getItem('token') || ''
   request.headers = request.headers || {}
-  request.headers.set('Authorization', token)
+  token && request.headers.set('Authorization', 'Bearer ' + token)
   next((response) => {
     return response
   })
@@ -20,16 +20,11 @@ Vue.http.interceptors.push((request, next) => {
 
 // mock data
 if (process.env.NODE_ENV !== 'production') {
-  require('./mock-data')
+  // require('./mock-data')
 }
 
 export const Message = Vue.resource(API_ROOT + '/messages{/id}')
 
-export const Account = Vue.resource(API_ROOT + '/accounts{/id}')
+export const Account = Vue.resource(API_ROOT + '/users{/id}')
 
-export const Auth = Vue.resource(API_ROOT + '/auth', {}, {
-  login: {
-    method: 'post',
-    url: '/auth/local'
-  }
-})
+export const Auth = Vue.resource('/auth/local')
