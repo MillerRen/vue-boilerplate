@@ -34,7 +34,7 @@ module.exports = function(app) {
     secret: config.secrets.session,
     resave: true,
     saveUninitialized: true,
-    store: new mongoStore({ mongoose_connection: mongoose.connection })
+    store: new mongoStore({ mongooseConnection: mongoose.connection })
   }));
   app.use(passport.initialize());
   app.use(passport.session());
