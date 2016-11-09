@@ -30,6 +30,12 @@ export default {
     ...mapActions({
       'callLogout': 'logout'
     })
+  },
+  created () {
+    this.callLogout()
+    .then(() => {
+      this.$router.push('login')
+    })
   }
 }
 </script>

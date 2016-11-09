@@ -14,7 +14,7 @@ router.post('/', function(req, res, next) {
     
     req.logIn(user, function(err){
       if(err) return next(err);
-      res.json({});
+      res.json({token: user._id});
     });
     
   })(req, res, next)
