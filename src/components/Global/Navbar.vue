@@ -5,8 +5,14 @@
     <router-link to="/" class="navbar-brand">
     <img src="../../assets/logo.png" alt="brand" class="img-responsive"> Vue-boilerplate
     </router-link>
+    <button type="button" class="navbar-toggle collapsed" @click="collapse()">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
     </div>
-    <div class="navbar-collapse">
+    <div class="navbar-collapse" :class="{collapse: collapsed}">
       <ul v-if="!isLoggedIn" class="nav navbar-nav navbar-right">
         <router-link tag="li" to="/login">
           <a>Login</a>		
@@ -35,13 +41,23 @@
 import {mapGetters, mapActions} from 'vuex'
 
 export default {
+  data () {
+    return {
+      collapsed: true
+    }
+  },
   computed: mapGetters({
     me: 'me',
     isLoggedIn: 'loggedIn'
   }),
-  methods: mapActions({
-    getAccount: 'getAccount'
-  }),
+  methods: {
+    collapse () {
+      this.collapsed = !this.collapsed
+    },
+    ...mapActions({
+      getAccount: 'getAccount'
+    })
+  },
   created () {
     this.isLoggedIn && this.getAccount({id: 'me'})
     .catch(() => {})
