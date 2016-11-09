@@ -26,5 +26,11 @@ export function login ({commit}, params) {
 }
 
 export function logout ({commit}, params) {
-  commit(types.LOGOUT)
+  return API.Auth.remove(params)
+  .then((response) => {
+    commit(types.LOGOUT)
+  })
+  .catch((response) => {
+    //
+  })
 }
