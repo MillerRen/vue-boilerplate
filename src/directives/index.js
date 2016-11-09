@@ -1,1 +1,4 @@
-import './dropdown.directive'
+import Vue from 'vue'
+
+// global directive register
+Vue.directive('dropdown', require('./dropdown').default)
