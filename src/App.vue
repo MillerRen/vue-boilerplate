@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
 import router from './router'
 import store from 'src/vuex'
 import VuexRouterSync from 'vuex-router-sync'
@@ -25,19 +24,7 @@ VuexRouterSync.sync(store, router)
 
 export default {
   router,
-  store,
-  components: {
-  },
-  computed: mapGetters({
-    isLoggedIn: 'loggedIn'
-  }),
-  methods: {
-    loggedIn () {
-      return this.isLoggedIn
-    }
-  },
-  created () {
-  }
+  store
 }
 </script>
 
