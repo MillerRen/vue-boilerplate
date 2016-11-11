@@ -1,6 +1,10 @@
 # vue-boilerplate
 
-> Vue 2.0 boilerplate，based on webpack and es6，includes vuex，vue-router，vue-resource, vue-auth
+> Vue 2.0 boilerplate，based on webpack and es6，includes vuex，vue-router，vue-resource, vee-validate
+
+## Documents
+
+Just read the fucking source code
 
 ## Build Setup
 
