@@ -2,7 +2,9 @@
 <div class="view-profile container">
   <div class="col-sm-4 col-sm-offset-4">
     <img :src="src" alt="" class="img-responsive img-cycle">
-    <Uploader :url="url" @success="onUploadSuccess" @error="onUploadError"></Uploader>
+    <Uploader :url="url" @success="onUploadSuccess" @error="onUploadError">
+    	<button class="btn btn-default">上传</button>
+    </Uploader>
   </div>
 </div>
 </template>

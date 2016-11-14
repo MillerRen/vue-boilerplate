@@ -1,8 +1,10 @@
 <template>
 <div class="component-uploader">
+  <slot></slot>
   <input type="file" name="file" @change="onChange($event)">
 </div>
 </template>
+
 <script>
 export default {
   props: {
@@ -30,4 +32,20 @@ export default {
   }
 }
 </script>
-<style></style>
+
+<style>
+.component-uploader {
+  position: relative;
+}
+
+.component-uploader input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  background: none;
+  cursor: pointer;
+}
+</style>
