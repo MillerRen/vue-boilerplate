@@ -21,11 +21,11 @@ if(config.seedDB) { require('./config/seed'); }
 // Setup server
 var app = express();
 var server = require('http').createServer(app);
-var socketio = require('socket.io')(server, {
-  serveClient: (config.env === 'production') ? false : true,
-  path: '/socket.io-client'
-});
-require('./config/socketio')(socketio);
+// var socketio = require('socket.io')(server, {
+//   serveClient: (config.env === 'production') ? false : true,
+//   path: '/socket.io-client'
+// });
+// require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./config/rbac')(app);
 require('./routes')(app);
