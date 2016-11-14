@@ -3,6 +3,18 @@
 var _ = require('lodash');
 var File = require('./file.model');
 
+var mongoose = require('mongoose');
+var Grid = require('gridfs-stream');
+var multer = require('multer');
+var gfs = Grid(mongoose.connection.db, mongoose.mongo);
+var storage = require('multer-gridfs-storage')({
+      gfs:gfs,
+      metadata: function(req, file, cb){
+          cb(null, {user:req.user._id});
+      }
+  });
+var upload = multer({ storage: storage });
+
 // Get list of files
 exports.index = function(req, res) {
   File.find({'metadata.user':req.user._id})
@@ -24,15 +36,32 @@ exports.show = function(req, res) {
   });
 };
 
+// Get a single file entity
+exports.entity = function(req, res) {
+  File.findById(req.params.id, function (err, file) {
+    if(err) { return handleError(res, err); }
+    if(!file) { return res.status(404).send(''); }
+    var rs = gfs.createReadStream({
+      _id: req.params.id
+    })
+    rs.pipe(res)
+  });
+};
+
 // Creates a new file in the DB.
 exports.create = function(req, res, next) {
   console.log(req.file)
-  File.findById(req.file.id, function (err, file) {
+  upload.single('file')(req, res, function (err) {
     if (err) {
-      return handleError(err)
+      return res.status(500).json(err)
     }
-    res.json(file)
-  })
+    File.findById(req.file.id, function (err, file) {
+      if (err) {
+        return handleError(err)
+      }
+      res.json(file)
+    })
+  });
 };
 
 // Updates an existing file in the DB.
