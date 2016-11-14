@@ -18,9 +18,12 @@ var spinner = ora('building for production...')
 spinner.start()
 
 var assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirectory)
+var serverPath = path.join(config.build.assetsRoot, config.build.assetsServerDirectory)
 rm('-rf', assetsPath)
 mkdir('-p', assetsPath)
+mkdir('-p', serverPath)
 cp('-R', 'static/*', assetsPath)
+cp('-R', 'server/*', serverPath)
 
 webpack(webpackConfig, function (err, stats) {
   spinner.stop()
