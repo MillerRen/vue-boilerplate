@@ -14,6 +14,10 @@ Vue.http.interceptors.push((request, next) => {
   // request.headers = request.headers || {}
   // token && request.headers.set('Authorization', 'Bearer ' + token)
   next((response) => {
+    console.log(response)
+    if (response.status === 401) {
+      localStorage.removeItem('token')
+    }
     return response
   })
 })
