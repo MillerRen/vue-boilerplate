@@ -8,6 +8,9 @@
 export default {
   components: {
     Jumbotron: require('views/Home/Jumbotron')
+  },
+  mounted () {
+    this.$root.toast('hello world')
   }
 }
 </script>

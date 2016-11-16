@@ -1,3 +1,7 @@
+export const message = (state) => {
+  return state.message.message
+}
+
 export const me = (state) => {
   return state.account.account
 }

@@ -7,6 +7,7 @@
     </transition>
     <Footer></Footer>
     <!-- <router-view name="footer"></router-view> -->
+    <Toast :message="message"></Toast>
   </div>
 </template>
 
@@ -20,11 +21,24 @@ import 'src/components/async'
 import 'src/directives'
 import 'src/validators'
 
+import Toast from 'src/components/Toast'
+
+import {mapGetters, mapActions} from 'vuex'
+
 VuexRouterSync.sync(store, router)
 
 export default {
   router,
-  store
+  store,
+  components: {
+    Toast
+  },
+  computed: mapGetters({
+    message: 'message'
+  }),
+  methods: mapActions({
+    toast: 'toast'
+  })
 }
 </script>
 
