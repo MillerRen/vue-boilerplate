@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "deploy": "npm run build && gh-pages -d dist --remote origin",
+    "deploy": "npm run build && npm run gh-pages",
+    "gh-pages": "gh-pages -d dist --remote origin",
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",

@@ -8,6 +8,7 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   linkActiveClass: 'active',
   mode: 'history',
+  base: '/vue-boilerplate/',
   routes
 })
 
