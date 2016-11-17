@@ -2,9 +2,9 @@
 
 > Vue 2.0 boilerplate，based on webpack and es6，includes vuex，vue-router，vue-resource, vee-validate
 
-## Documents
+## Demo
 
-Just read the fucking source code
+[vue-boilerplate demo](https://millerren.github.io/vue-boilerplate/)
 
 ## Build Setup
 
