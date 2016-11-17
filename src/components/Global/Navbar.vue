@@ -13,6 +13,7 @@
     </button>
     </div>
     <div class="navbar-collapse" :class="{collapse: collapsed}">
+      <p class="navbar-text navbar-right github-link"><a href="https://github.com/MillerRen/vue-boilerplate"><img src="../../assets/github.svg" alt=""></a></p>
       <ul v-if="!isLoggedIn" class="nav navbar-nav navbar-right">
         <router-link tag="li" to="/login">
           <a>Login</a>		
@@ -69,5 +70,9 @@ export default {
 .navbar-brand img {
   max-height: 100%;
   display: inline-block;
+}
+.navbar .github-link img{
+  height: 18px;
+  width: 18px;
 }
 </style>
