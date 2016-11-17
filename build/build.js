@@ -14,12 +14,12 @@ console.log(
 )
 
 var assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirectory)
-var serverPath = path.join(config.build.assetsRoot, config.build.assetsServerDirectory)
+// var serverPath = path.join(config.build.assetsRoot, config.build.assetsServerDirectory)
 rm('-rf', assetsPath)
 mkdir('-p', assetsPath)
-mkdir('-p', serverPath)
+// mkdir('-p', serverPath)
 cp('-R', 'static/*', assetsPath)
-cp('-R', 'server/*', serverPath)
+// cp('-R', 'server/*', serverPath)
 
 webpack(webpackConfig, function (err, stats) {
   if (err) throw err
