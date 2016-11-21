@@ -1,6 +1,6 @@
 {
   "name": "vue-boilerplate",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "description": "Vue 2.0 boilerplate includes vuex vue-router vue-resource vue-auth",
   "author": "Miller Ren <ren12345@126.com>",
   "private": true,
