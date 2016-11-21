@@ -19,6 +19,7 @@
     "vee-validate": "^2.0.0-beta.14",
     "vue": "^2.0.8",
     "vue-clickaway": "^2.0.0",
+    "vue-loader": "^9.9.5",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.0.3",
     "vuex": "^2.0.0",
