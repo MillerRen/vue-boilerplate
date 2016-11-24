@@ -8,7 +8,7 @@
     <Footer></Footer>
     <!-- <router-view name="footer"></router-view> -->
     <Toast :message="message"></Toast>
-    <Modal :modalView="modalView" @close="onCloseModal">
+    <Modal :modalView="modalView" :modalData="modalData" @close="closeModal">
     </Modal>
   </div>
 </template>
@@ -37,7 +37,8 @@ export default {
   },
   data () {
     return {
-      modalView: 'LoginModal'
+      modalView: '',
+      modalData: {}
     }
   },
   computed: {
@@ -46,8 +47,13 @@ export default {
     })
   },
   methods: {
-    onCloseModal (e, data) {
+    closeModal (e, data) {
       this.modalView = ''
+      this.modalData = {}
+    },
+    openModal (view, data) {
+      this.modalView = view
+      this.modalData = data
     },
     ...mapActions({
       toast: 'toast'

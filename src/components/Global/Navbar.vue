@@ -15,9 +15,10 @@
     <div class="navbar-collapse" :class="{collapse: collapsed}">
       <p class="navbar-text navbar-right github-link"><a href="https://github.com/MillerRen/vue-boilerplate"><img src="../../assets/github.svg" alt=""></a></p>
       <ul v-if="!isLoggedIn" class="nav navbar-nav navbar-right">
-        <router-link tag="li" to="/login">
+        <!-- <router-link tag="li" to="/login">
           <a>Login</a>		
-        </router-link>
+        </router-link> -->
+        <li><a href="javascript:;" @click="onClickLogin">Login</a></li>
       </ul>
       <ul v-if="isLoggedIn" class="nav navbar-nav navbar-right">
         <li class="dropdown" v-dropdown>
@@ -54,6 +55,9 @@ export default {
   methods: {
     collapse () {
       this.collapsed = !this.collapsed
+    },
+    onClickLogin () {
+      this.$root.openModal('LoginModal', {})
     },
     ...mapActions({
       getAccount: 'getAccount'

@@ -25,11 +25,6 @@ export default {
       account: {}
     }
   },
-  computed: {
-    redirect () {
-      return this.$route.query.redirect || '/'
-    }
-  },
   methods: {
     login () {
       this.$validator.validateAll()
@@ -39,7 +34,7 @@ export default {
         return this.getAccount({id: 'me'})
       })
       .then((response) => {
-        this.$router.push(this.redirect)
+        this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$root.closeModal()
       })
       .catch(() => {})
     },
