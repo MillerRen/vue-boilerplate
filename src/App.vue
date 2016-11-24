@@ -8,6 +8,8 @@
     <Footer></Footer>
     <!-- <router-view name="footer"></router-view> -->
     <Toast :message="message"></Toast>
+    <Modal :modalView="modalView" @close="onCloseModal">
+    </Modal>
   </div>
 </template>
 
@@ -33,12 +35,24 @@ export default {
   components: {
     Toast
   },
-  computed: mapGetters({
-    message: 'message'
-  }),
-  methods: mapActions({
-    toast: 'toast'
-  })
+  data () {
+    return {
+      modalView: 'LoginModal'
+    }
+  },
+  computed: {
+    ...mapGetters({
+      message: 'message'
+    })
+  },
+  methods: {
+    onCloseModal (e, data) {
+      this.modalView = ''
+    },
+    ...mapActions({
+      toast: 'toast'
+    })
+  }
 }
 </script>
 
