@@ -1,23 +1,17 @@
-// don't import anything, make sure it's just config
+import account from './account'
+
+import header from 'components/Layout/Navbar.vue'
+import footer from 'components/Layout/Footer.vue'
+
 const routes = [
   {
     path: '/',
-    component: resolve => require(['views/Home'], resolve)
-  },
-  {
-    path: '/profile',
-    auth: true,
-    meta: {
-      requiresAuth: true
+    components: {
+      header: header,
+      footer: footer,
+      default: resolve => require(['components/Layout/Main.vue'], resolve)
     },
-    component: resolve => require(['views/Account/Profile.vue'], resolve)
-  },
-  {
-    path: '/login',
-    component: resolve => require(['views/Account/Login.vue'], resolve)
-  },
-  { path: '/logout',
-    component: resolve => require(['views/Account/Logout.vue'], resolve)
+    children: account
   },
   {
     path: '*',

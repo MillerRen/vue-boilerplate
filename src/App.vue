@@ -1,15 +1,10 @@
 <template>
   <div id="app" class="app">
-    <!-- <router-view name="header"></router-view> -->
-    <Navbar></Navbar>
-    <transition name="router" mode="out-in">
-    <router-view class="view router-view"></router-view>
-    </transition>
-    <Footer></Footer>
-    <!-- <router-view name="footer"></router-view> -->
+    <router-view name="header"></router-view>
+    <router-view></router-view>
+    <router-view name="footer"></router-view>
     <Toast :message="message"></Toast>
-    <Modal :modalView="modalView" :modalData="modalData" @close="closeModal">
-    </Modal>
+    <Modal :modalView="modalView" :modalData="modalData" @close="closeModal"></Modal>
   </div>
 </template>
 
