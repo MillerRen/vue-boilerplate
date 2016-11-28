@@ -18,8 +18,7 @@ import router from './router'
 import store from 'src/vuex'
 import VuexRouterSync from 'vuex-router-sync'
 
-import 'src/components/global'
-import 'src/components/async'
+import 'src/components'
 import 'src/directives'
 import 'src/validators'
 
