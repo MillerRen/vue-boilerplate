@@ -1,9 +1,9 @@
 <template>
-<div class="footer">
+<footer class="component-footer footer">
   <div class="container text-center">
     <p class="text-muted">Vue-boilerplate@{{version}} powered by Vue</p>
   </div>
-</div>
+</footer>
 </template>
 
 <script>

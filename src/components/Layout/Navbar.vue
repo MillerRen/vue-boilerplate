@@ -1,5 +1,5 @@
 <template>
-<div class="navbar navbar-default navbar-static-top">
+<nav class="component-navbar navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
     <router-link to="/" class="navbar-brand">
@@ -15,9 +15,6 @@
     <div class="navbar-collapse" :class="{collapse: collapsed}">
       <p class="navbar-text navbar-right github-link"><a href="https://github.com/MillerRen/vue-boilerplate"><img src="../../assets/github.svg" alt=""></a></p>
       <ul v-if="!isLoggedIn" class="nav navbar-nav navbar-right">
-        <!-- <router-link tag="li" to="/login">
-          <a>Login</a>		
-        </router-link> -->
         <li><a href="javascript:;" @click="onClickLogin">Login</a></li>
       </ul>
       <ul v-if="isLoggedIn" class="nav navbar-nav navbar-right">
@@ -36,7 +33,7 @@
       </ul>
     </div>
   </div>
-</div>
+</nav>
 </template>
 
 <script>
