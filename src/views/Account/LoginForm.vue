@@ -2,12 +2,12 @@
 <form class="form form-login" @submit.prevent="login(account)">
   <div class="form-group" :class="{'has-error': errors.has('email')}">
     <label for="">email</label>
-    <input type="text" name="email" class="form-control" placeholder="email" v-model="account.email" v-validate data-rules="required|email" />
+    <input type="text" name="email" class="form-control" placeholder="email" v-model="account.email" v-validate data-vv-rules="required|email" />
     <p class="help-block">{{errors.first('email')}}</p>
   </div>
   <div class="form-group" :class="{'has-error': errors.has('password')}">
     <label for="">password</label>
-    <input type="password" class="form-control" name="password" placeholder="password" v-model="account.password" v-validate data-rules="required" />
+    <input type="password" class="form-control" name="password" placeholder="password" v-model="account.password" v-validate data-vv-rules="required" />
     <p class="help-block">{{errors.first('password')}}</p>
   </div>
   <div class="form-group">
