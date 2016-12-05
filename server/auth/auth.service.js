@@ -1,8 +1,11 @@
 'use strict';
 
+var config = require('../config/environment');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var config = require('../config/environment');
+var jwt = require('jsonwebtoken');
+var expressJwt = require('express-jwt');
+var validateJwt = expressJwt({ secret: config.secrets.session });
 var compose = require('composable-middleware');
 var User = require('../api/user/user.model');
 
@@ -12,13 +15,34 @@ var User = require('../api/user/user.model');
  */
 function isAuthenticated() {
   return compose()
+    // Validate jwt
+    .use(function(req, res, next) {
+      // allow access_token to be passed through query parameter as well
+      if(req.query && req.query.hasOwnProperty('access_token')) {
+        req.headers.authorization = `Bearer ${req.query.access_token}`;
+      }
+     // IE11 forgets to set Authorization header sometimes. Pull from cookie instead.
+      if(req.query && typeof req.headers.authorization === 'undefined') {
+        req.headers.authorization = `Bearer ${req.cookies.token}`;
+      }
+      validateJwt(req, res, next);
+    })
+    .use(function (err, req, res, next) {
+      if (err.name === 'UnauthorizedError') {
+        res.status(401).send('invalid token...');
+      }
+    })
     // Attach user to request
     .use(function(req, res, next) {
-      if(req.isAuthenticated()){
-        return next();
-      }
-
-      res.status(401).json({message: ''})
+      User.findById(req.user._id).exec()
+        .then(user => {
+          if(!user) {
+            return res.status(401).end();
+          }
+          req.user = user;
+          next();
+        })
+        .catch(err => next(err));
     });
 }
 
@@ -40,6 +64,13 @@ function hasRole(roleRequired) {
     });
 }
 
+/**
+ * Returns a jwt token signed by the app secret
+ */
+function signToken(id) {
+  return jwt.sign({ _id: id }, config.secrets.session, { expiresIn: '7d' });
+}
+
 
 /**
  * Set token cookie directly for oAuth strategies
@@ -54,3 +85,4 @@ function setTokenCookie(req, res) {
 exports.isAuthenticated = isAuthenticated;
 exports.hasRole = hasRole;
 exports.setTokenCookie = setTokenCookie;
+exports.signToken = signToken;

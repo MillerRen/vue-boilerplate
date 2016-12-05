@@ -10,19 +10,13 @@ router.post('/', function(req, res, next) {
   passport.authenticate('local', function (err, user, info) {
     var error = err || info;
     if (error) return res.json(401, error);
-    if (!user) return res.json(404, {message: 'Something went wrong, please try again.'});
+    if (!user) return res.json(401, {message: 'Something went wrong, please try again.'});
     
-    req.logIn(user, function(err){
-      if(err) return next(err);
-      res.json({token: user._id});
-    });
+    var token = auth.signToken(user._id, user.role);
+
+    res.json({token: token})
     
   })(req, res, next)
-});
-
-router.delete('/', function(req, res, next){
-  req.logout();
-  res.json({});
 });
 
 module.exports = router;
