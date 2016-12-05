@@ -30,11 +30,11 @@ export default {
       this.$validator.validateAll()
       if (this.errors.any()) return
       this.callLogin(this.account)
-      .then((response) => {
+      .then(() => {
         return this.getAccount({id: 'me'})
       })
       .then((response) => {
-        this.$route.query.redirect ? this.$router.push(this.$route.query.redirect) : this.$root.closeModal()
+        this.$emit('auth-success')
       })
       .catch(() => {})
     },

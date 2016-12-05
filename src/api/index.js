@@ -7,14 +7,13 @@ Vue.use(VueResource)
 
 Vue.http.options.crossOrigin = true
 Vue.http.options.xhr = {withCredentials: true}
-Vue.http.options.emulateJSON = true
+// Vue.http.options.emulateJSON = true
 
 Vue.http.interceptors.push((request, next) => {
-  // const token = window.localStorage.getItem('token') || ''
-  // request.headers = request.headers || {}
-  // token && request.headers.set('Authorization', 'Bearer ' + token)
+  const token = window.localStorage.getItem('token') || ''
+  request.headers = request.headers || {}
+  token && request.headers.set('Authorization', 'Bearer ' + token)
   next((response) => {
-    console.log(response)
     if (response.status === 401) {
       localStorage.removeItem('token')
     }

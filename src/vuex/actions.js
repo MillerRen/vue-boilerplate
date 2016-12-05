@@ -34,11 +34,6 @@ export function login ({commit}, params) {
 }
 
 export function logout ({commit}, params) {
-  return API.Auth.remove(params)
-  .then((response) => {
-    commit(types.LOGOUT)
-  })
-  .catch((response) => {
-    //
-  })
+  commit(types.AUTH_LOGIN_FAIL, {})
+  return Promise.resolve()
 }
