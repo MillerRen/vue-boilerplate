@@ -10,7 +10,6 @@ export default {
     Jumbotron: require('views/Home/Jumbotron')
   },
   mounted () {
-    this.$root.toast('hello world')
   }
 }
 </script>

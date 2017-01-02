@@ -9,10 +9,6 @@
 </template>
 
 <script>
-import router from './router'
-import store from 'src/vuex'
-import VuexRouterSync from 'vuex-router-sync'
-
 import 'src/components'
 import 'src/directives'
 import 'src/validators'
@@ -21,11 +17,8 @@ import Toast from 'src/components/Toast'
 
 import {mapGetters, mapActions} from 'vuex'
 
-VuexRouterSync.sync(store, router)
-
 export default {
-  router,
-  store,
+  name: 'App',
   components: {
     Toast
   },
@@ -37,7 +30,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      message: 'message'
+      message: 'message',
+      loggedIn: 'loggedIn'
     })
   },
   methods: {
