@@ -7,6 +7,7 @@ import * as getters from 'src/vuex/getters'
 import account from 'src/vuex/modules/account'
 import auth from 'src/vuex/modules/auth'
 import message from 'src/vuex/modules/message'
+import modal from 'src/vuex/modules/modal'
 
 Vue.use(Vuex)
 
@@ -18,7 +19,8 @@ const store = new Vuex.Store({
   modules: {
     account,
     auth,
-    message
+    message,
+    modal
   },
   strict: false,
   plugins: debug ? [createLogger()] : []

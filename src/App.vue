@@ -1,9 +1,10 @@
 <template>
   <div id="app" class="app">
-    <router-view name="header"></router-view>
+    <Navbar></Navbar>
     <router-view></router-view>
-    <router-view name="footer"></router-view>
+    <Footer></Footer>
     <Toast :message="message"></Toast>
+    <Modal :modalView="modalView"></Modal>
   </div>
 </template>
 
@@ -19,13 +20,15 @@ export default {
   },
   computed: {
     ...mapGetters({
-      message: 'message'
+      message: 'message',
+      modalView: 'modalView'
     })
   },
   methods: {
     test () {},
     ...mapActions({
-      toast: 'toast'
+      toast: 'toast',
+      dialog: 'dialog'
     })
   },
   mounted () {

@@ -9,6 +9,10 @@ export function toast ({commit, state}, message) {
   }, 3000)
 }
 
+export function dialog ({commit, state}, view, data) {
+  commit(types.OPEN_MODAL, view, data)
+}
+
 export function getAccount ({commit, state}, params) {
   return API.Account.get(params)
   .then((response) => {
