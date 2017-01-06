@@ -9,10 +9,6 @@ export function toast ({commit, state}, message) {
   }, 3000)
 }
 
-export function dialog ({commit, state}, view, data) {
-  commit(types.OPEN_MODAL, view, data)
-}
-
 export function getAccount ({commit, state}, params) {
   return API.Account.get(params)
   .then((response) => {
@@ -38,6 +34,6 @@ export function login ({commit}, params) {
 }
 
 export function logout ({commit}, params) {
-  commit(types.AUTH_LOGIN_FAIL, {})
+  commit(types.AUTH_LOGOUT, {})
   return Promise.resolve()
 }

@@ -12,6 +12,9 @@ const mutations = {
   },
   [types.GET_ACCOUNT_FAIL] (state, err) {
     state.account = {}
+  },
+  [types.AUTH_LOGOUT] (state, err) {
+    state.account = {}
   }
 }
 

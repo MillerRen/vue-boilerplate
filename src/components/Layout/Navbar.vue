@@ -54,7 +54,7 @@ export default {
       this.collapsed = !this.collapsed
     },
     onClickLogin () {
-      this.$root.openModal('LoginModal', {})
+      this.$store.commit('OPEN_DIALOG', 'LoginModal', {})
     },
     ...mapActions({
       getAccount: 'getAccount'
@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style>
-.navbar-brand img {
+.navbar-brand > img {
   max-height: 100%;
   display: inline-block;
 }

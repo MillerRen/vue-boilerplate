@@ -18,6 +18,7 @@ export default {
   },
   computed: {
     show () {
+      console.log(this.modalView)
       return !!this.modalView
     },
     modalSize () {
@@ -26,14 +27,14 @@ export default {
   },
   methods: {
     close () {
-      this.$emit('close', this.data)
+      this.$store.commit('CLOSE_DIALOG')
     }
   }
 }
 </script>
 
 <style>
-.component-modal {
+.modal.component-modal {
   display: block;
   background: rgba(0,0,0,.6)
 }

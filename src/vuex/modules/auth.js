@@ -13,7 +13,7 @@ const mutations = {
     state.token = ''
     localStorage.setItem('token', '')
   },
-  [types.LOGOUT] (state, err) {
+  [types.AUTH_LOGOUT] (state, err) {
     state.token = ''
     localStorage.setItem('token', '')
   }

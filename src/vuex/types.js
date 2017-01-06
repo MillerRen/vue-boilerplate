@@ -1,9 +1,12 @@
 export const TOAST_MESSAGE = 'TOAST_MESSAGE'
 
+export const OPEN_DIALOG = 'OPEN_DIALOG'
+export const CLOSE_DIALOG = 'CLOSE_DIALOG'
+
 export const AUTH_LOGIN_SUCCESS = 'AUTH_LOGIN_SUCCESS'
 export const AUTH_LOGIN_FAIL = 'AUTH_LOGIN_FAIL'
 
-export const LOGOUT = 'LOGOUT'
+export const AUTH_LOGOUT = 'AUTH_LOGOUT'
 
 export const GET_ACCOUNT_SUCCESS = 'GET_ACCOUNT_SUCCESS'
 export const GET_ACCOUNT_FAIL = 'GET_ACCOUNT_FAIL'

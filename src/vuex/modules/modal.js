@@ -6,9 +6,13 @@ const state = {
 }
 
 const mutations = {
-  [types.OPEN_MODAL] (sate, view, data) {
+  [types.OPEN_DIALOG] (sate, view, data) {
     state.view = view
     state.data = data
+  },
+  [types.CLOSE_DIALOG] (sate, view, data) {
+    state.view = ''
+    state.data = {}
   }
 }
 

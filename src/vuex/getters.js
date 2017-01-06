@@ -11,5 +11,5 @@ export const me = (state) => {
 }
 
 export const loggedIn = (state) => {
-  return true
+  return !!state.auth.token
 }

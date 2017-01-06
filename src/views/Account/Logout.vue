@@ -1,5 +1,5 @@
 <template>
-  <div class="view-login">
+  <div class="view-logout">
     <div class="container">
       <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -18,21 +18,11 @@
 import {mapActions} from 'vuex'
 
 export default {
-  data () {
-    return {
-      account: {}
-    }
-  },
-  methods: {
-    logout () {
-      this.callLogout()
-    },
-    ...mapActions({
-      'callLogout': 'logout'
-    })
-  },
-  created () {
-    this.callLogout()
+  methods: mapActions({
+    'logout': 'logout'
+  }),
+  mounted () {
+    this.logout()
     .then(() => {
       this.$router.push('login')
     })
