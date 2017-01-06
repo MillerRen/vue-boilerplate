@@ -5,7 +5,7 @@ import me from './data/me.json'
 import auth from './data/auth.json'
 
 const data = {
-  '/accounts/me': me,
+  '/users/me': me,
   '/auth/local': auth
 }
 
@@ -14,7 +14,7 @@ Vue.http.interceptors.push((request, next) => {
   var key = url.replace(API_ROOT, '')
   console.log('request:', url, data[key])
   next(request.respondWith(data[key], {
-    status: '200',
-    ok: true
+    status: data[key] ? 200 : 500,
+    ok: !!data[key]
   }))
 })

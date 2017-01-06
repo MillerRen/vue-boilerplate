@@ -14,11 +14,27 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (!to.meta.requiresAuth) return next()
-  if (localStorage.token) return next()
-  next({
-    path: '/login',
-    query: { redirect: to.fullPath }
-  })
+  if (localStorage.token) {
+    Vue.http.get('/users/me')
+    .then((response) => {
+      next(vm => {
+        vm.user = response.body
+      })
+    })
+    .catch((response) => {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    })
+  } else {
+    next({
+      path: '/login',
+      query: { redirect: to.fullPath }
+    })
+  }
 })
+
+Vue.router = router
 
 export default router

@@ -8,8 +8,6 @@
 export default {
   components: {
     Jumbotron: require('views/Home/Jumbotron')
-  },
-  mounted () {
   }
 }
 </script>

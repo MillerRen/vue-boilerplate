@@ -1,7 +1,5 @@
 import * as types from 'src/vuex/types'
 
-var localStorage = window.localStorage
-
 const state = {
   token: localStorage.getItem('token') || ''
 }

@@ -4,15 +4,10 @@
     <router-view></router-view>
     <router-view name="footer"></router-view>
     <Toast :message="message"></Toast>
-    <Modal :modalView="modalView" :modalData="modalData" @close="closeModal"></Modal>
   </div>
 </template>
 
 <script>
-import 'src/components'
-import 'src/directives'
-import 'src/validators'
-
 import Toast from 'src/components/Toast'
 
 import {mapGetters, mapActions} from 'vuex'
@@ -22,30 +17,19 @@ export default {
   components: {
     Toast
   },
-  data () {
-    return {
-      modalView: '',
-      modalData: {}
-    }
-  },
   computed: {
     ...mapGetters({
-      message: 'message',
-      loggedIn: 'loggedIn'
+      message: 'message'
     })
   },
   methods: {
-    closeModal (e, data) {
-      this.modalView = ''
-      this.modalData = {}
-    },
-    openModal (view, data) {
-      this.modalView = view
-      this.modalData = data
-    },
+    test () {},
     ...mapActions({
       toast: 'toast'
     })
+  },
+  mounted () {
+    console.log('mounted')
   }
 }
 </script>

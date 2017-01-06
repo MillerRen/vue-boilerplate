@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
     <title>vue-boilerplate</title>
     <style type="text/css">
+    .loader{position:absolute;top:calc(50% - 1.25em);left:calc(50% - 1.25em)}.loader:after,.loader:before{content:'';position:absolute;top:50%;left:50%;display:block;width:.5em;height:.5em;border-radius:.25em;transform:translate(-50%,-50%)}.loader:before{animation:before 2s infinite}.loader:after{animation:after 2s infinite}@keyframes before{0%{width:.5em;box-shadow:1em -.5em rgba(225,20,98,.75),-1em .5em rgba(111,202,220,.75)}35%{width:2.5em;box-shadow:0 -.5em rgba(225,20,98,.75),0 .5em rgba(111,202,220,.75)}70%{width:.5em;box-shadow:-1em -.5em rgba(225,20,98,.75),1em .5em rgba(111,202,220,.75)}100%{box-shadow:1em -.5em rgba(225,20,98,.75),-1em .5em rgba(111,202,220,.75)}}@keyframes after{0%{height:.5em;box-shadow:.5em 1em rgba(61,184,143,.75),-.5em -1em rgba(233,169,32,.75)}35%{height:2.5em;box-shadow:.5em 0 rgba(61,184,143,.75),-.5em 0 rgba(233,169,32,.75)}70%{height:.5em;box-shadow:.5em -1em rgba(61,184,143,.75),-.5em 1em rgba(233,169,32,.75)}100%{box-shadow:.5em 1em rgba(61,184,143,.75),-.5em -1em rgba(233,169,32,.75)}}
     </style>
   </head>
   <body>
-    <div id="app">
-      <router-view></router-view>
-    </div>
+    <router-view><div class="loader"></div></router-view>
     <!-- built files will be auto injected -->
   </body>
 </html>
