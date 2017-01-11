@@ -15,7 +15,8 @@ VuexRouterSync.sync(store, router)
 
 /* eslint-disable no-new */
 new Vue({
-  el: 'router-view',
+  el: '#app',
   router,
-  store
+  store,
+  template: '<router-view></router-view>'
 })

@@ -9,7 +9,17 @@ const router = new VueRouter({
   linkActiveClass: 'active',
   mode: 'history',
   base: '/vue-boilerplate/',
-  routes
+  routes: [
+    {
+      path: '/',
+      component: resolve => require(['src/App.vue'], resolve),
+      children: routes
+    },
+    {
+      path: '*',
+      redirect: '/'
+    }
+  ]
 })
 
 router.beforeEach((to, from, next) => {
