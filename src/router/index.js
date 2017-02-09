@@ -24,25 +24,25 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (!to.meta.requiresAuth) return next()
-  if (localStorage.token) {
-    Vue.http.get('/users/me')
-    .then((response) => {
-      next(vm => {
-        vm.user = response.body
-      })
-    })
-    .catch((response) => {
-      next({
-        path: '/login',
-        query: { redirect: to.fullPath }
-      })
-    })
-  } else {
-    next({
+  if (!localStorage.token) {
+    return next({
       path: '/login',
       query: { redirect: to.fullPath }
     })
   }
+
+  Vue.http.get('/users/me')
+  .then((response) => {
+    next(vm => {
+      vm.user = response.body
+    })
+  })
+  .catch((response) => {
+    next({
+      path: '/login',
+      query: { redirect: to.fullPath }
+    })
+  })
 })
 
 Vue.router = router
