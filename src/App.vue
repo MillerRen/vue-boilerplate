@@ -1,8 +1,6 @@
 <template>
   <div id="app" class="app">
-    <Navbar></Navbar>
     <router-view></router-view>
-    <Footer></Footer>
     <Toast :message="message"></Toast>
     <Modal :modalView="modalView"></Modal>
   </div>
