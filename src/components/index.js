@@ -6,4 +6,3 @@ Vue.component('LoginModal', require('views/Account/LoginModal.vue'))
 
 // async components
 Vue.component('Uploader', resolve => require(['components/Uploader'], resolve))
-Vue.component('Hello', resolve => require(['components/Async/Hello.vue'], resolve))
