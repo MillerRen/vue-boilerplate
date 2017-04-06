@@ -11,8 +11,9 @@ const router = new VueRouter({
   base: '/vue-boilerplate/',
   routes: [
     {
-      path: '/',
-      component: resolve => require(['src/components/Layout/Main.vue'], resolve),
+      path: '/app',
+      alias: '/',
+      component: resolve => require(['src/App'], resolve),
       children: routes
     },
     {

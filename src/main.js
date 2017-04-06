@@ -8,14 +8,12 @@ import 'src/directives'
 import 'src/validators'
 import 'src/plugins'
 import 'src/components'
-import App from './App.vue'
 
 VuexRouterSync.sync(store, router)
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  el: 'router-view',
   router,
-  store,
-  ...App
+  store
 })
