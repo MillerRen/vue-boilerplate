@@ -1,5 +1,5 @@
 import * as API from 'src/api'
-import * as types from 'src/vuex/types'
+import * as types from './types'
 
 export function toast ({commit, state}, message) {
   commit(types.TOAST_MESSAGE, message)

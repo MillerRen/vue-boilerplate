@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import router from 'src/router'
-import store from 'src/vuex'
+import store from 'src/store'
 import VuexRouterSync from 'vuex-router-sync'
 import 'src/directives'
 import 'src/validators'

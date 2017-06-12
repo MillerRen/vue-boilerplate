@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createLogger from 'vuex/dist/logger'
-import * as actions from 'src/vuex/actions'
-import * as getters from 'src/vuex/getters'
+import * as actions from './actions'
+import * as getters from './getters'
 
-import account from 'src/vuex/modules/account'
-import auth from 'src/vuex/modules/auth'
-import message from 'src/vuex/modules/message'
-import modal from 'src/vuex/modules/modal'
+import account from './modules/account'
+import auth from './modules/auth'
+import message from './modules/message'
+import modal from './modules/modal'
 
 Vue.use(Vuex)
 

@@ -1,4 +1,4 @@
-import * as types from 'src/vuex/types'
+import * as types from 'src/store/types'
 
 const state = {
   account: {
