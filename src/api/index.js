@@ -30,7 +30,7 @@ Vue.http.interceptors.push((request, next) => {
 
 // mock data
 if (process.env.NODE_ENV !== 'production') {
-  // require('./mock-data')
+  require('./mock-data')
 }
 
 export const Message = Vue.resource(API_ROOT + '/messages{/id}')
