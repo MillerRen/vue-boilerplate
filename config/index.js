@@ -8,7 +8,7 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsServerDirectory: 'server',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/vue-boilerplate/',
     publicPath: '/vue-boilerplate/',
     productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as
