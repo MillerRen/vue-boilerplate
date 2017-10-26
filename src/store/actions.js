@@ -1,4 +1,4 @@
-import * as API from 'src/api'
+import * as API from '@/api'
 import * as types from './types'
 
 export function toast ({commit, state}, message) {

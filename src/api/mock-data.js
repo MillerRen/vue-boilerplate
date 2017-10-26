@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import {API_ROOT} from 'src/config/constants'
+import {API_ROOT} from '@/config/constants'
 
 import me from './data/me.json'
 import auth from './data/auth.json'

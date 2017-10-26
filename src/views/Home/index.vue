@@ -5,9 +5,11 @@
 </template>
 
 <script>
+import Jumbotron from '@/views/Home/Jumbotron'
+
 export default {
   components: {
-    Jumbotron: require('views/Home/Jumbotron')
+    Jumbotron
   }
 }
 </script>

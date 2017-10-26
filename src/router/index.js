@@ -11,18 +11,10 @@ const router = new VueRouter({
   linkActiveClass: 'active',
   mode: 'history',
   base: '/vue-boilerplate/',
-  routes: [
-    {
-      path: '/app',
-      alias: '/',
-      component: resolve => require(['src/App'], resolve),
-      children: routes
-    },
-    {
-      path: '*',
-      redirect: '/'
-    }
-  ]
+  routes: routes,
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
 
 router.beforeEach((to, from, next) => {

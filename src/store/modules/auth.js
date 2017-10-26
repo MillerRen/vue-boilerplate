@@ -1,4 +1,4 @@
-import * as types from 'src/store/types'
+import * as types from '@/store/types'
 
 const state = {
   token: localStorage.getItem('token') || ''

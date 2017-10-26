@@ -38,4 +38,3 @@ export const Message = Vue.resource(API_ROOT + '/messages{/id}')
 export const Account = Vue.resource(API_ROOT + '/users{/id}')
 
 export const Auth = Vue.resource('/auth/local')
-

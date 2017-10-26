@@ -1,44 +1,24 @@
 <template>
   <div id="app" class="app">
-    <Navbar></Navbar>
+    <router-view name="header"></router-view>
     <transition name="router" mode="out-in">
       <router-view class="view router-view"></router-view>
     </transition>
-    <Foot></Foot>
-    <Toast :message="message"></Toast>
-    <Modal :modalView="modalView"></Modal>
+    <router-view name="footer"></router-view>
   </div>
 </template>
 
 <script>
-import Toast from 'src/components/Toast'
-import Navbar from '@/components/Layout/Navbar'
-import Foot from '@/components/Layout/Footer'
-
-import {mapGetters, mapActions} from 'vuex'
 
 export default {
   name: 'App',
   components: {
-    Toast,
-    Navbar,
-    Foot
   },
   computed: {
-    ...mapGetters({
-      message: 'message',
-      modalView: 'modalView'
-    })
   },
   methods: {
-    test () {},
-    ...mapActions({
-      toast: 'toast',
-      dialog: 'dialog'
-    })
   },
   mounted () {
-    console.log('mounted')
   }
 }
 </script>

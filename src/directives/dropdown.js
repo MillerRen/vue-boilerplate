@@ -1,4 +1,4 @@
-import {toggle, remove} from 'src/utils/dom-classes'
+import {toggle, remove} from '@/utils/dom-classes'
 
 const DROPDOWN_HANDLER = '__dropdown_handler'
 const DOCUMENT_DROPDOWN_HANDLER = '__document_dropdown_handler'

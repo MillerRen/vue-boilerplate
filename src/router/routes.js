@@ -1,22 +1,20 @@
-const routes = [
+import Empty from '@/views/Empty'
+import Navbar from '@/components/Navbar'
+
+export default [
   {
-    path: '',
-    component: resolve => require(['views/Home'], resolve)
-  },
-  {
-    path: '/profile',
-    meta: {
-      requiresAuth: true
-    },
-    component: resolve => require(['views/Account/Profile.vue'], resolve)
+    path: '/',
+    components: {
+      header: Navbar,
+      default: () => import('@/views/Home')
+    }
   },
   {
     path: '/login',
-    component: resolve => require(['views/Account/Login.vue'], resolve)
+    component: resolve => require(['@/views/Auth/Login.vue'], resolve)
   },
-  { path: '/logout',
-    component: resolve => require(['views/Account/Logout.vue'], resolve)
+  {
+    path: '*',
+    component: Empty
   }
 ]
-
-export default routes
