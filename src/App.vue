@@ -19,6 +19,7 @@ export default {
   methods: {
   },
   mounted () {
+    this.$toasted.success('hello')
   }
 }
 </script>

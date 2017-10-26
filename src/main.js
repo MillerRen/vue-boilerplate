@@ -12,7 +12,6 @@ import '@/components'
 import '@/filters'
 
 import App from './App'
-
 const Root = Vue.extend(App)
 
 Vue.config.productionTip = false
