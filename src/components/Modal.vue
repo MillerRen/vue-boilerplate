@@ -2,7 +2,7 @@
 <div class="component-modal modal fade in">
   <div class="modal-backdrop fade in" v-if="backdrop" @click.self="close"></div>
   <div class="modal-dialog" :class="'modal-'+size">
-    <component :is="name"></component>
+    <component :is="name" @close="close"></component>
   </div>
 </div>
 </template>
@@ -22,11 +22,6 @@ export default {
     backdrop: {
       type: Boolean,
       default: true
-    }
-  },
-  data () {
-    return {
-      show: true
     }
   },
   methods: {
