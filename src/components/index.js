@@ -1,7 +1,8 @@
 import Vue from 'vue'
+import Modal from '@/components/Modal'
 
 // global components
-Vue.component('Modal', require('@/components/Modal'))
+Vue.component('Modal', Modal)
 
 // async components
-Vue.component('Uploader', resolve => require(['@/components/Uploader'], resolve))
+// Vue.component('Uploader', resolve => require(['@/components/Uploader'], resolve))
