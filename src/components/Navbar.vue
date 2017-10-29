@@ -52,7 +52,10 @@ export default {
   }),
   methods: {
     loginModal () {
-      this.$modal(Login)
+      this.$modal(Login, {
+        size: 'sm',
+        backdrop: true
+      })
     }
   }
 }

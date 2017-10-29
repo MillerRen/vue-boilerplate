@@ -3,13 +3,16 @@ import Component from '@/components/Modal'
 
 const Modal = Vue.extend(Component)
 
-function modal (opts) {
+function modal (Component, opts) {
+  var name = Component.name
   var instance = new Modal({
     propsData: {
-      name: opts.name
+      name: name,
+      size: opts.size,
+      backdrop: opts.backdrop
     }
   })
-  instance.$options.components[opts.name] = opts
+  instance.$options.components[name] = Component
   instance.$mount()
   document.body.appendChild(instance.$el)
   return instance

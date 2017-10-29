@@ -30,7 +30,11 @@ export default {
     }
   },
   beforeDestroy () {
+    document.body.classList.remove('modal-open')
     this.$el.remove()
+  },
+  mounted () {
+    document.body.classList.add('modal-open')
   }
 }
 </script>
