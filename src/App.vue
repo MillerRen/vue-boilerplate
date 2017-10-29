@@ -19,7 +19,8 @@ export default {
   methods: {
   },
   mounted () {
-    this.$modal(Hello)
+    const modal = this.$modal(Hello)
+    window.modal = modal
   }
 }
 </script>

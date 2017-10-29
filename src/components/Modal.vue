@@ -33,6 +33,9 @@ export default {
     close () {
       this.$destroy()
     }
+  },
+  beforeDestroy () {
+    this.$el.remove()
   }
 }
 </script>
