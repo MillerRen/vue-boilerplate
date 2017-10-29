@@ -2,7 +2,7 @@
 <div class="component-modal modal fade in">
   <div class="modal-backdrop fade in" v-if="backdrop" @click.self="close"></div>
   <div class="modal-dialog" :class="'modal-'+size">
-    <button class="close" @click="close">
+    <button class="close" @click.self="close">
       <span aria-hidden="true">×</span>
     </button>
     <component :is="name" @close="close"></component>
