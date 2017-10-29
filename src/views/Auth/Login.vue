@@ -1,6 +1,9 @@
 <template>
   <div class="view-login modal-content">
       <div class="modal-header">
+        <button class="close" @click="close">
+          <span aria-hidden="true">×</span>
+        </button>
         <h4 class="panel-title">Login</h4>
       </div>
       <div class="modal-body">
@@ -34,6 +37,9 @@ export default {
     }
   },
   methods: {
+    close () {
+      this.$emit('close')
+    },
     submit () {
       this.$validator.validateAll()
       if (this.errors.any()) return
