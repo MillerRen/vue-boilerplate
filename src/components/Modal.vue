@@ -2,6 +2,9 @@
 <div class="component-modal modal fade in">
   <div class="modal-backdrop fade in" v-if="backdrop" @click.self="close"></div>
   <div class="modal-dialog" :class="'modal-'+size">
+    <button class="close" @click="close">
+      <span aria-hidden="true">×</span>
+    </button>
     <component :is="name" @close="close"></component>
   </div>
 </div>
@@ -39,11 +42,17 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .component-modal {
   display: block;
 }
-.modal-backdrop {
+.modal .modal-backdrop {
   z-index: 0;
+}
+.modal .close {
+  position: relative;
+  z-index: 1;
+  margin-right: 12px;
+  margin-top: 12px;
 }
 </style>
