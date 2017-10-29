@@ -14,12 +14,12 @@
     </div>
     <div class="navbar-collapse" :class="{collapse: collapsed}">
       <p class="navbar-text navbar-right github-link"><a href="https://github.com/MillerRen/vue-boilerplate"><img src="../assets/github.svg" alt=""></a></p>
-      <ul v-if="!isLoggedIn" class="nav navbar-nav navbar-right">
+      <ul v-if="!me" class="nav navbar-nav navbar-right">
         <li>
-          <router-link to="/login">Login</router-link>
+          <a @click="loginModal">Login</a>
         </li>
       </ul>
-      <ul v-if="isLoggedIn" class="nav navbar-nav navbar-right">
+      <ul v-if="me" class="nav navbar-nav navbar-right">
         <li class="dropdown" v-dropdown>
           <a href="javascript:void(0)" class="dropdown-toggle">{{me.name}}</a>
           <ul class="dropdown-menu">
@@ -39,8 +39,8 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex'
-
+import Login from '@/views/Auth/Login'
+import {mapGetters} from 'vuex'
 export default {
   data () {
     return {
@@ -48,23 +48,12 @@ export default {
     }
   },
   computed: mapGetters({
-    me: 'me',
-    isLoggedIn: 'loggedIn'
+    'me': 'account'
   }),
   methods: {
-    collapse () {
-      this.collapsed = !this.collapsed
-    },
-    onClickLogin () {
-      this.$store.commit('OPEN_DIALOG', 'LoginModal', {})
-    },
-    ...mapActions({
-      getAccount: 'getAccount'
-    })
-  },
-  created () {
-    this.isLoggedIn && this.getAccount({id: 'me'})
-    .catch(() => {})
+    loginModal () {
+      this.$modal(Login)
+    }
   }
 }
 </script>
