@@ -10,10 +10,6 @@ export default [
     }
   },
   {
-    path: '/login',
-    component: resolve => require(['@/views/Auth/Login.vue'], resolve)
-  },
-  {
     path: '*',
     component: Empty
   }
