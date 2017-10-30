@@ -32,7 +32,10 @@ export default {
         return {}
       }
     },
-    onClose: Function
+    onClose: {
+      type: Function,
+      default: () => {}
+    }
   },
   methods: {
     close (data) {
