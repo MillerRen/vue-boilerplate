@@ -1,14 +1,6 @@
 import * as API from '@/api'
 import * as types from './types'
 
-export function toast ({commit, state}, message) {
-  commit(types.TOAST_MESSAGE, message)
-  var timer = setTimeout(() => {
-    commit(types.TOAST_MESSAGE, '')
-    clearTimeout(timer)
-  }, 3000)
-}
-
 export function getAccount ({commit, state}, params) {
   return API.Account.get(params)
   .then((response) => {

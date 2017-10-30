@@ -1,18 +1,14 @@
 import Vue from 'vue'
-import Component from '@/components/Modal'
+import Modal from '@/components/Modal'
 
-const Modal = Vue.extend(Component)
+const ModalConstructor = Vue.extend(Modal)
 
 function modal (Component, opts) {
-  var name = Component.name
-  var instance = new Modal({
-    propsData: {
-      name: name,
-      size: opts.size,
-      backdrop: opts.backdrop
-    }
+  opts.name = Component.name
+  var instance = new ModalConstructor({
+    propsData: opts
   })
-  instance.$options.components[name] = Component
+  instance.$options.components[opts.name] = Component
   instance.$mount()
   document.body.appendChild(instance.$el)
   return instance

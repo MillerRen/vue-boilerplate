@@ -5,7 +5,7 @@
     <button class="close" @click="close">
       <span aria-hidden="true">×</span>
     </button>
-    <component :is="name" @close="close"></component>
+    <component :is="name" @close="close" v-bind="props"></component>
   </div>
 </div>
 </template>
@@ -25,10 +25,18 @@ export default {
     backdrop: {
       type: Boolean,
       default: true
-    }
+    },
+    props: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    onClose: Function
   },
   methods: {
-    close () {
+    close (data) {
+      this.onClose(data)
       this.$destroy()
     }
   },

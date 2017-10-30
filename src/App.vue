@@ -18,6 +18,14 @@ export default {
   methods: {
   },
   mounted () {
+    this.$confirm({
+      size: 'sm',
+      props: {
+        msg: 'hello'
+      },
+      onClose (confirm) {
+      }
+    })
   }
 }
 </script>
