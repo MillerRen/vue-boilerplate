@@ -34,7 +34,6 @@ router.beforeEach((to, from, next) => {
       query: { redirect: to.fullPath }
     })
   }
-
 })
 
 Vue.router = router

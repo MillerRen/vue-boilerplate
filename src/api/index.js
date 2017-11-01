@@ -6,6 +6,7 @@ import axios from 'axios'
 const API_ROOT = '/api'
 
 axios.defaults.BASE_URL = API_ROOT
+axios.defaults.headers.common['Authorization'] = `Bear ${localStorage.token}`
 
 axios.interceptors.request.use(function (request) {
   NProgress.start()
