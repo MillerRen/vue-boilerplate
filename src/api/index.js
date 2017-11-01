@@ -3,6 +3,9 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import axios from 'axios'
 
+Vue.http = axios
+Vue.prototype.$http = axios
+
 const API_ROOT = '/api'
 
 axios.defaults.BASE_URL = API_ROOT
@@ -23,12 +26,11 @@ axios.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 
-Vue.http = axios
-Vue.prototype.$http = axios
-
 // mock data
 if (process.env.NODE_ENV !== 'production') {
   // require('./mock-data')
 }
 
-export default axios
+export const Account = axios.create()
+
+export const Auth = axios.create()
