@@ -1,4 +1,4 @@
-import * as API from '@/api'
+import API from '@/api'
 import * as types from './types'
 
 export function getAccount ({commit, state}, params) {

@@ -35,18 +35,6 @@ router.beforeEach((to, from, next) => {
     })
   }
 
-  Vue.http.get('/users/me')
-  .then((response) => {
-    next(vm => {
-      vm.user = response.body
-    })
-  })
-  .catch((response) => {
-    next({
-      path: '/login',
-      query: { redirect: to.fullPath }
-    })
-  })
 })
 
 Vue.router = router
