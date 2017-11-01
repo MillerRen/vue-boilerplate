@@ -10,14 +10,16 @@ axios.defaults.headers.common['Authorization'] = `Bear ${localStorage.token}`
 
 axios.interceptors.request.use(function (request) {
   NProgress.start()
+  return request
 }, function (error) {
   return Promise.reject(error)
 })
 
-axios.interceptors.response.use(function () {
+axios.interceptors.response.use(function (response) {
   NProgress.done()
+  return response
 }, function (error) {
-  Vue.toasted.e(error)
+  Vue.toasted.error(error)
   return Promise.reject(error)
 })
 

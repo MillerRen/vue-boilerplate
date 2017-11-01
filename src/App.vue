@@ -18,16 +18,7 @@ export default {
   methods: {
   },
   mounted () {
-    this.$confirm({
-      size: 'sm',
-      props: {
-        msg: 'hello',
-        prompt: true
-      },
-      onClose (confirm) {
-        console.log(confirm)
-      }
-    })
+    this.$http.get('/users')
   }
 }
 </script>
