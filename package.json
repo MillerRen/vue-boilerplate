@@ -17,6 +17,7 @@
     "postversion": "git push && git push --tags && npm run gh-pages"
   },
   "dependencies": {
+    "axios": "^0.17.0",
     "bootstrap": "^3.3.7",
     "nprogress": "^0.2.0",
     "vee-validate": "^2.0.0-rc.19",
