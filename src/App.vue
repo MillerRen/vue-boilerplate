@@ -18,6 +18,7 @@ export default {
   methods: {
   },
   mounted () {
+    this.$http.get('/users')
   }
 }
 </script>

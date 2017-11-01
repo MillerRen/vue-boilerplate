@@ -41,7 +41,7 @@ export default {
     submit () {
       this.$validator.validateAll()
       if (this.errors.any()) return
-      this.login(this.account)
+      this.$http.post('/auth/local', this.account)
       .then(() => {
         return this.getAccount({id: 'me'})
       })
