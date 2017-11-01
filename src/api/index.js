@@ -22,6 +22,7 @@ axios.interceptors.response.use(function (response) {
   NProgress.done()
   return response
 }, function (error) {
+  NProgress.done()
   Vue.toasted.error(error.message)
   return Promise.reject(error)
 })
