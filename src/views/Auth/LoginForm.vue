@@ -1,5 +1,5 @@
 <template>
-  <div class="view-login modal-content">
+  <div class="view-login-form modal-content">
       <div class="modal-header">
         Login
       </div>
@@ -25,12 +25,14 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
 export default {
-  name: 'login',
+  name: 'LoginForm',
   data () {
     return {
-      account: {}
+      account: {
+        email: '',
+        password: ''
+      }
     }
   },
   methods: {
@@ -45,13 +47,10 @@ export default {
         return this.getAccount({id: 'me'})
       })
       .then((response) => {
-        this.$router.push(this.$route.query.redirect || '/')
+        this.close()
       })
       .catch(() => {})
-    },
-    ...mapActions({
-      'login': 'login'
-    })
+    }
   }
 }
 </script>
