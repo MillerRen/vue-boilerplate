@@ -1,24 +1,32 @@
-import * as types from '@/store/types'
+
+const GET_ACCOUNT_SUCCESS = 'GET_ACCOUNT_SUCCESS'
+const GET_ACCOUNT_FAIL = 'GET_ACCOUNT_FAIL'
 
 const state = {
-  account: {
-    name: ''
+  account: null
+}
+
+const getters = {
+  account (state) {
+    return state.account
   }
 }
 
 const mutations = {
-  [types.GET_ACCOUNT_SUCCESS] (state, account) {
+  [GET_ACCOUNT_SUCCESS] (state, account) {
     state.account = account
   },
-  [types.GET_ACCOUNT_FAIL] (state, err) {
-    state.account = {}
-  },
-  [types.AUTH_LOGOUT] (state, err) {
+  [GET_ACCOUNT_FAIL] (state, err) {
     state.account = {}
   }
 }
 
+const actions = {
+}
+
 export default {
   state,
-  mutations
+  getters,
+  mutations,
+  actions
 }

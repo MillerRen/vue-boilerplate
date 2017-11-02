@@ -1,25 +1,33 @@
-import * as types from '@/store/types'
+const AUTH_LOGIN_SUCCESS = 'AUTH_LOGIN_SUCCESS'
+const AUTH_LOGIN_FAIL = 'AUTH_LOGIN_FAIL'
+const AUTH_LOGOUT = 'AUTH_LOGOUT'
 
 const state = {
   token: localStorage.getItem('token') || ''
 }
 
+const getters = {}
+
 const mutations = {
-  [types.AUTH_LOGIN_SUCCESS] (state, data) {
+  [AUTH_LOGIN_SUCCESS] (state, data) {
     state.token = data.token
     localStorage.setItem('token', data.token)
   },
-  [types.AUTH_LOGIN_FAIL] (state, err) {
+  [AUTH_LOGIN_FAIL] (state, err) {
     state.token = ''
     localStorage.setItem('token', '')
   },
-  [types.AUTH_LOGOUT] (state, err) {
+  [AUTH_LOGOUT] (state, err) {
     state.token = ''
     localStorage.setItem('token', '')
   }
 }
 
+const actions = {}
+
 export default {
   state,
-  mutations
+  getters,
+  mutations,
+  actions
 }

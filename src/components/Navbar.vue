@@ -21,7 +21,7 @@
       </ul>
       <ul v-if="me" class="nav navbar-nav navbar-right">
         <li class="dropdown" v-dropdown>
-          <a href="javascript:void(0)" class="dropdown-toggle">{{me.name}}</a>
+          <a href="javascript:void(0)" class="dropdown-toggle">{{me.name||'anonymous'}}</a>
           <ul class="dropdown-menu">
             <router-link tag="li" to="/profile">
               <a><i class="glyphicon glyphicon-user"></i> Profile</a>
