@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import LoginForm from '@/views/Auth/LoginForm'
+// import LoginForm from '@/views/Auth/LoginForm'
 import {mapGetters} from 'vuex'
 export default {
   name: 'Navbar',
@@ -53,7 +53,7 @@ export default {
   }),
   methods: {
     loginModal () {
-      this.$modal(LoginForm, {
+      this.$modal(() => import('@/views/Auth/LoginForm'), {
         size: 'sm',
         backdrop: true
       })

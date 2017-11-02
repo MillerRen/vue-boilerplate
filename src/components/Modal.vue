@@ -5,7 +5,7 @@
     <button class="close" @click="close">
       <span aria-hidden="true">×</span>
     </button>
-    <component :is="name" @close="close" v-bind.sync="props"></component>
+    <modal-content @close="close" v-bind.sync="props"></modal-content>
   </div>
 </div>
 </template>
