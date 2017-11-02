@@ -1,7 +1,7 @@
 <template>
   <div class="view-login modal-content">
       <div class="modal-header">
-        <h4>Login</h4>
+        Login
       </div>
       <div class="modal-body">
         <form class="form form-login" @submit.prevent="submit(account)">
