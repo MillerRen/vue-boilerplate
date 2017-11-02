@@ -5,7 +5,7 @@
     <router-link to="/" class="navbar-brand">
     <img src="../assets/logo.png" alt="brand" class="img-responsive"> Vue-boilerplate
     </router-link>
-    <button type="button" class="navbar-toggle collapsed" @click="collapse()">
+    <button type="button" class="navbar-toggle collapsed" @click="collapsed=!collapsed">
       <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import Login from '@/views/Auth/Login'
+import Login from '@/views/Auth/LoginForm'
 import {mapGetters} from 'vuex'
 export default {
   data () {

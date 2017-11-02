@@ -10,6 +10,10 @@ export default [
     }
   },
   {
+    path: '/auth/local',
+    component: () => import('@/views/Auth/Login')
+  },
+  {
     path: '*',
     component: Empty
   }

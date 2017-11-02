@@ -30,7 +30,7 @@ router.beforeEach((to, from, next) => {
   if (!to.meta.requiresAuth) return next()
   if (!localStorage.token) {
     return next({
-      path: '/login',
+      path: '/auth/local',
       query: { redirect: to.fullPath }
     })
   }

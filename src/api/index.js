@@ -23,6 +23,9 @@ axios.interceptors.response.use(function (response) {
   return response
 }, function (error) {
   NProgress.done()
+  // if (401 === error.response.status) {
+  //  localStorage.removeItem('token')
+  // }
   Vue.toasted.error(error.message)
   return Promise.reject(error)
 })
