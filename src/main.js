@@ -9,8 +9,8 @@ import '@/filters'
 import router from '@/router'
 import store from '@/store'
 import VuexRouterSync from 'vuex-router-sync'
-
 import App from './App'
+
 const Root = Vue.extend(App)
 
 Vue.config.productionTip = false
