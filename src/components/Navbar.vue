@@ -5,7 +5,7 @@
     <router-link to="/" class="navbar-brand">
     <img src="../assets/logo.png" alt="brand" class="img-responsive"> Vue-boilerplate
     </router-link>
-    <button type="button" class="navbar-toggle collapsed" @click="collapsed=!collapsed">
+    <button type="button" class="navbar-toggle collapsed" @click="collapsed=!collapsed" v-clickaway="clickaway">
       <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -57,6 +57,10 @@ export default {
         size: 'sm',
         backdrop: true
       })
+    },
+    clickaway () {
+      console.log('clickaway')
+      this.collapsed = true
     }
   }
 }
