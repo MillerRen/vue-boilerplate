@@ -5,13 +5,19 @@
       <router-view class="view router-view"></router-view>
     </transition>
     <router-view name="footer"></router-view>
+    <modal title="Login">
+      <login-form></login-form>
+    </modal>
   </div>
 </template>
 
 <script>
+import LoginForm from '@/views/Auth/LoginForm'
+
 export default {
   name: 'App',
   components: {
+    LoginForm
   },
   computed: {
   },

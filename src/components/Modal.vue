@@ -5,7 +5,13 @@
     <button class="close" @click="close">
       <span aria-hidden="true">×</span>
     </button>
-    <modal-content @close="close" v-bind.sync="props"></modal-content>
+    <div class="modal-content">
+      <header class="modal-header" v-if="title">{{title}}</header>
+      <content class="modal-body"><slot></slot></content>
+      <footer class="modal-footer" v-if="actions&&actions.length">
+        <button class="btn" v-for="action in actions" @click="onAction">{{action.text}}</button>
+      </footer>
+    </div>
   </div>
 </div>
 </template>
@@ -18,7 +24,7 @@ export default {
       type: String,
       default: 'md'
     },
-    name: {
+    title: {
       type: String,
       default: ''
     },
@@ -26,29 +32,22 @@ export default {
       type: Boolean,
       default: true
     },
-    props: {
-      type: Object,
+    actions: {
+      type: Array,
       default () {
-        return {}
+        return []
       }
-    },
-    onClose: {
-      type: Function,
-      default: () => {}
     }
   },
   methods: {
-    close (data) {
-      this.onClose(data)
+    close () {
       this.$destroy()
+    },
+    onaction (action) {
+      if (action.callback) {
+        action.callback()
+      }
     }
-  },
-  beforeDestroy () {
-    document.body.classList.remove('modal-open')
-    this.$el.remove()
-  },
-  mounted () {
-    document.body.classList.add('modal-open')
   }
 }
 </script>
@@ -77,5 +76,8 @@ export default {
   height: 100%;
   border: none;
   border-radius: 0;
+}
+.modal .modal-body {
+  display: block;
 }
 </style>
