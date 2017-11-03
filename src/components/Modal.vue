@@ -1,5 +1,5 @@
 <template>
-<div class="component-modal modal fade in" v-if="show">
+<div class="component-modal modal fade in">
   <div class="modal-backdrop fade in" v-if="backdrop" @click.self="close"></div>
   <div class="modal-dialog" :class="'modal-'+size">
     <button class="close" @click="close">
@@ -20,10 +20,6 @@
 export default {
   name: 'modal',
   props: {
-    show: {
-      type: Boolean,
-      default: false
-    },
     size: {
       type: String,
       default: 'md'

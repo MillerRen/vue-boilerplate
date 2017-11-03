@@ -5,7 +5,7 @@
       <router-view class="view router-view"></router-view>
     </transition>
     <router-view name="footer"></router-view>
-    <modal title="Login" :show="showLoginModal">
+    <modal title="Login" v-if="showLoginModal">
       <login-form></login-form>
     </modal>
   </div>
