@@ -5,7 +5,7 @@
       <router-view class="view router-view"></router-view>
     </transition>
     <router-view name="footer"></router-view>
-    <modal title="Login">
+    <modal title="Login" :show="showLoginModal">
       <login-form></login-form>
     </modal>
   </div>
@@ -19,11 +19,17 @@ export default {
   components: {
     LoginForm
   },
-  computed: {
+  data () {
+    return {
+      showLoginModal: false
+    }
   },
   methods: {
   },
   mounted () {
+    this.$on('login', () => {
+      this.showLoginModal = true
+    })
   }
 }
 </script>
