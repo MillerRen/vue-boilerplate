@@ -1,3 +1,5 @@
+import * as API from '@/api'
+
 const AUTH_LOGIN_SUCCESS = 'AUTH_LOGIN_SUCCESS'
 const AUTH_LOGIN_FAIL = 'AUTH_LOGIN_FAIL'
 const AUTH_LOGOUT = 'AUTH_LOGOUT'
@@ -23,7 +25,11 @@ const mutations = {
   }
 }
 
-const actions = {}
+const actions = {
+  login ({commit}, data) {
+    return API.Auth.post(data)
+  }
+}
 
 export default {
   state,

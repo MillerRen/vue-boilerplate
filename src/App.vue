@@ -6,7 +6,7 @@
     </transition>
     <router-view name="footer"></router-view>
     <modal ref="modal" v-bind="opts" v-if="opts.name" @close="opts={}">
-      <component :is="opts.name" :v-bind="opts.props" v-on="opts.events"></component>
+      <component :is="opts.name" :v-bind="opts.props"></component>
     </modal>
   </div>
 </template>
