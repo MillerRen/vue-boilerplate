@@ -27,6 +27,9 @@ Vue.use(VueToasted, {
 })
 Vue.use(VuejsDialog)
 Vue.component('modal', Modal)
+Vue.prototype.$modal = function (opts) {
+  app.modal(opts)
+}
 
 Validator.addLocale(zh)
 Vue.use(VeeValidate, {
@@ -66,7 +69,7 @@ router.afterEach(() => {
 })
 
 /* eslint-disable no-new */
-new Root({
+const app = new Root({
   el: 'app',
   router,
   store

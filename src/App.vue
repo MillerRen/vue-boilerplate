@@ -5,8 +5,8 @@
       <router-view class="view router-view"></router-view>
     </transition>
     <router-view name="footer"></router-view>
-    <modal title="Login" v-if="showLoginModal">
-      <login-form></login-form>
+    <modal :title="modalOptions.title" v-if="modalOptions.name">
+      <component :is="modalOptions.name||modalOptions.component.name"></component>
     </modal>
   </div>
 </template>
@@ -21,15 +21,17 @@ export default {
   },
   data () {
     return {
-      showLoginModal: false
+      modalOptions: {
+        component: {}
+      }
     }
   },
   methods: {
+    modal (opts) {
+      this.modalOptions = opts
+    }
   },
   mounted () {
-    this.$on('login', () => {
-      this.showLoginModal = true
-    })
   }
 }
 </script>

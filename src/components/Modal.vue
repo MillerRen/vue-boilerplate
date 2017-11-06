@@ -62,8 +62,8 @@ export default {
 .modal .close {
   position: relative;
   z-index: 1;
-  margin-right: 12px;
-  margin-top: 12px;
+  margin-right: 8px;
+  margin-top: 6px;
 }
 .modal .modal-full {
   width: 100%;

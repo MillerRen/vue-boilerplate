@@ -52,7 +52,10 @@ export default {
   }),
   methods: {
     loginModal () {
-      this.$root.$emit('login')
+      this.$modal({
+        title: 'Login',
+        name: 'login-form'
+      })
     },
     clickaway () {
       this.collapsed = true
