@@ -5,33 +5,23 @@
       <router-view class="view router-view"></router-view>
     </transition>
     <router-view name="footer"></router-view>
-    <modal :title="modalOptions.title" v-if="modalOptions.name">
-      <component :is="modalOptions.name||modalOptions.component.name"></component>
-    </modal>
+    <modal ref="modal" v-bind="opts"></modal>
   </div>
 </template>
 
 <script>
-import LoginForm from '@/views/Auth/LoginForm'
-
 export default {
   name: 'App',
-  components: {
-    LoginForm
-  },
   data () {
     return {
-      modalOptions: {
-        component: {}
-      }
+      opts: {}
     }
   },
   methods: {
     modal (opts) {
-      this.modalOptions = opts
+      this.opts = opts
+      return this.$refs.modal
     }
-  },
-  mounted () {
   }
 }
 </script>

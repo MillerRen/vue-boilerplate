@@ -54,7 +54,7 @@ export default {
     loginModal () {
       this.$modal({
         title: 'Login',
-        name: 'login-form'
+        component: 'LoginForm'
       })
     },
     clickaway () {
