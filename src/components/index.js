@@ -1,4 +1,3 @@
 import Vue from 'vue'
-import LoginForm from '@/views/Auth/LoginForm'
 
-Vue.component('login-form', LoginForm)
+Vue.component('login-form', () => import('@/views/Auth/LoginForm'))
