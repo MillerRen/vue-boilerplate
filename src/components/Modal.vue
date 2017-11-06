@@ -41,16 +41,9 @@ export default {
       }
     }
   },
-  data () {
-    return {
-      show: false,
-      component: {},
-      events: {}
-    }
-  },
   methods: {
     close () {
-      this.$destroy()
+      this.$emit('close')
     },
     onaction (action) {
       if (action.callback) {
