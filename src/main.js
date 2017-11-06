@@ -7,6 +7,7 @@ import VuexRouterSync from 'vuex-router-sync'
 import App from './App'
 
 import '@/plugins'
+import '@/validators'
 import '@/directives'
 import '@/filters'
 import '@/mixins'

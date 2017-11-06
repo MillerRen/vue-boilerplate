@@ -5,7 +5,9 @@
       <router-view class="view router-view"></router-view>
     </transition>
     <router-view name="footer"></router-view>
-    <modal ref="modal" v-bind="opts"></modal>
+    <modal ref="modal" v-bind="opts" v-if="opts.name">
+      <component :is="opts.name" :v-bind="opts.props" v-on="opts.events"></component>
+    </modal>
   </div>
 </template>
 
@@ -19,7 +21,11 @@ export default {
   },
   methods: {
     modal (opts) {
+      if (opts.component) {
+        this.$options.components[opts.name] = opts.component
+      }
       this.opts = opts
+      console.log(this.opts)
       return this.$refs.modal
     }
   }
