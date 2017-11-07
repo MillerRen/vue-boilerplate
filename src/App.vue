@@ -10,16 +10,7 @@
 
 <script>
 export default {
-  name: 'App',
-  mounted () {
-    this.$modal({
-      message: 'hello',
-      prompt: true,
-      onClose (data) {
-        console.log(data)
-      }
-    })
-  }
+  name: 'App'
 }
 </script>
 
