@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import VueModal from '@/plugins/modal'
+import VueModal from './modal'
 import VueComponent from './component'
-import VueToastr from '@/plugins/toastr'
+import VueToastr from './toastr'
 
 Vue.use(VueComponent)
 

@@ -1,14 +1,16 @@
 <template>
   <form class="form view-login-form" @submit.prevent="submit(account)">
-    <div class="form-group" :class="{'has-error': errors.has('email')}">
+    <div class="form-group" :class="{'has-error': $v.account.email.$error}">
       <label for="">email</label>
-      <input type="text" name="email" class="form-control" placeholder="email" v-model="account.email" v-validate data-vv-rules="required|email" />
-      <p class="help-block">{{errors.first('email')}}</p>
+      <input type="text" name="email" class="form-control" placeholder="email" v-model="account.email" @input="$v.account.email.$touch()" />
+      <p class="help-block" v-if="$v.account.email.$dirty&&!$v.account.email.required">Field is required</p>
+      <p class="help-block" v-if="!$v.account.email.email">Invalid email</p>
     </div>
-    <div class="form-group" :class="{'has-error': errors.has('password')}">
+    <div class="form-group" :class="{'has-error': $v.account.password.$error}">
       <label for="">password</label>
-      <input type="password" class="form-control" name="password" placeholder="password" v-model="account.password" v-validate data-vv-rules="required" />
-      <p class="help-block">{{errors.first('password')}}</p>
+      <input type="password" class="form-control" name="password" placeholder="password" v-model="account.password" @input="$v.account.password.$touch()" />
+      <p class="help-block" v-if="$v.account.password.$dirty&&!$v.account.password.required">Field is required</p>
+      <p class="help-block" v-if="$v.account.password.$dirty&&!$v.account.password.minLength">Field must have at least {{ $v.account.password.$params.minLength.min }} characters.</p>
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary btn-block">login</button>
@@ -17,6 +19,8 @@
 </template>
 
 <script>
+import { required, email, minLength } from 'vuelidate/lib/validators'
+
 export default {
   name: 'LoginForm',
   data () {
@@ -32,8 +36,8 @@ export default {
       this.$emit('close')
     },
     submit () {
-      this.$validator.validateAll()
-      if (this.errors.any()) return
+      this.$v.$touch()
+      if (this.$v.$invalid) return
       this.$http.post('/auth/local', this.account)
       .then(() => {
         return this.getAccount({id: 'me'})
@@ -42,6 +46,18 @@ export default {
         this.close()
       })
       .catch(() => {})
+    }
+  },
+  validations: {
+    account: {
+      email: {
+        required,
+        email
+      },
+      password: {
+        required,
+        minLength: minLength(6)
+      }
     }
   }
 }
