@@ -31,8 +31,9 @@ const actions = {
       .then((res) => {
         commit(AUTH_LOGIN_SUCCESS, res.body)
       })
-      .catch(() => {
+      .catch((res) => {
         commit(AUTH_LOGIN_FAIL)
+        return Promise.reject(res)
       })
   },
   logout ({commit}) {

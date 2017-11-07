@@ -53,12 +53,16 @@ export default {
   methods: {
     loginModal () {
       var vm = this
-      this.$modal({
+      var modal = this.$modal({
         title: 'Login',
         name: 'login-form',
         props: {
           onSubmit (data) {
-            vm.$store.dispatch('login')
+            vm.login(data)
+              .then(() => {
+                modal.close()
+              })
+              .catch(() => {})
           }
         }
       })
