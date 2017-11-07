@@ -8,6 +8,9 @@
     <div class="modal-content">
       <header class="modal-header" v-if="title">{{title}}</header>
       <content class="modal-body">
+        <p v-if="message">{{message}}</p>
+        <input type="text" class="form-control" v-model="input" v-if="prompt">
+        <component :is="name" v-if="name" v-bind="props"></component>
         <slot></slot>
       </content>
       <footer class="modal-footer" v-if="actions&&actions.length">
@@ -22,6 +25,30 @@
 export default {
   name: 'modal',
   props: {
+    name: {
+      type: String,
+      default: ''
+    },
+    component: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
+    message: {
+      type: String,
+      default: ''
+    },
+    prompt: {
+      type: Boolean,
+      default: false
+    },
+    props: {
+      type: Object,
+      default () {
+        return {}
+      }
+    },
     size: {
       type: String,
       default: 'md'
@@ -37,13 +64,32 @@ export default {
     actions: {
       type: Array,
       default () {
-        return []
+        if (!this.message) return []
+        return [{
+          text: 'OK',
+          type: 'success',
+          callback () {
+            this.close(true)
+          }
+        }, {
+          text: 'Cancel',
+          type: 'default',
+          callback () {
+            this.close(false)
+          }
+        }]
       }
     }
   },
+  data () {
+    return {
+      input: ''
+    }
+  },
   methods: {
-    close () {
-      this.$emit('close')
+    close (data) {
+      this.$emit('close', this.prompt ? this.input : data)
+      this.$destroy()
     },
     onAction (action) {
       if (action.callback) {
@@ -51,7 +97,7 @@ export default {
       }
     }
   },
-  beforCreate () {
+  mounted () {
     document.body.classList.add('modal-open')
   },
   destroyed () {
