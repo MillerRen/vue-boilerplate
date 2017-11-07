@@ -34,6 +34,9 @@ const actions = {
       .catch(() => {
         commit(AUTH_LOGIN_FAIL)
       })
+  },
+  logout ({commit}) {
+    commit(AUTH_LOGOUT)
   }
 }
 
