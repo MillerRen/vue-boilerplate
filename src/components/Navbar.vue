@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 export default {
   name: 'Navbar',
   data () {
@@ -52,14 +52,23 @@ export default {
   }),
   methods: {
     loginModal () {
+      var vm = this
       this.$modal({
         title: 'Login',
-        name: 'login-form'
+        name: 'login-form',
+        props: {
+          onSubmit (data) {
+            vm.$store.dispatch('login')
+          }
+        }
       })
     },
     clickaway () {
       this.collapsed = true
-    }
+    },
+    ...mapActions({
+      'login': 'login'
+    })
   }
 }
 </script>

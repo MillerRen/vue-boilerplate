@@ -23,6 +23,14 @@ import { required, email, minLength } from 'vuelidate/lib/validators'
 
 export default {
   name: 'LoginForm',
+  props: {
+    onSubmit: {
+      type: Function,
+      default () {
+        return () => {}
+      }
+    }
+  },
   data () {
     return {
       account: {
@@ -38,14 +46,7 @@ export default {
     submit () {
       this.$v.$touch()
       if (this.$v.$invalid) return
-      this.$http.post('/auth/local', this.account)
-      .then(() => {
-        return this.getAccount({id: 'me'})
-      })
-      .then((response) => {
-        this.close()
-      })
-      .catch(() => {})
+      this.onSubmit(this.account)
     }
   },
   validations: {

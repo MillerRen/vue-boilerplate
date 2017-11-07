@@ -27,7 +27,13 @@ const mutations = {
 
 const actions = {
   login ({commit}, data) {
-    return API.Auth.post(data)
+    return API.Auth.save(data)
+      .then((res) => {
+        commit(AUTH_LOGIN_SUCCESS, res.body)
+      })
+      .catch(() => {
+        commit(AUTH_LOGIN_FAIL)
+      })
   }
 }
 
