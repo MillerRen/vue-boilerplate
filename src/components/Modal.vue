@@ -51,7 +51,9 @@ export default {
     },
     size: {
       type: String,
-      default: 'md'
+      default () {
+        return this.message ? 'sm' : 'md'
+      }
     },
     title: {
       type: String,
