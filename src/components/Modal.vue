@@ -66,20 +66,27 @@ export default {
     actions: {
       type: Array,
       default () {
+        var vm = this
         if (!this.message) return []
         return [{
           text: 'OK',
           type: 'success',
           callback () {
-            this.close(true)
+            vm.close(true)
           }
         }, {
           text: 'Cancel',
           type: 'default',
           callback () {
-            this.close(false)
+            vm.close(false)
           }
         }]
+      }
+    },
+    onClose: {
+      type: Function,
+      default () {
+        return () => {}
       }
     }
   },
@@ -90,12 +97,12 @@ export default {
   },
   methods: {
     close (data) {
-      this.$emit('close', this.prompt ? this.input : data)
+      this.onClose(this.prompt ? this.input : data)
       this.$destroy()
     },
     onAction (action) {
       if (action.callback) {
-        action.callback.apply(this)
+        action.callback()
       }
     }
   },
