@@ -11,7 +11,7 @@
         <slot></slot>
       </content>
       <footer class="modal-footer" v-if="actions&&actions.length">
-        <button class="btn" v-for="action in actions" @click="onAction">{{action.text}}</button>
+        <button class="btn" v-for="action in actions" :class="['btn-'+action.type]" @click="onAction(action)">{{action.text}}</button>
       </footer>
     </div>
   </div>
@@ -45,9 +45,9 @@ export default {
     close () {
       this.$emit('close')
     },
-    onaction (action) {
+    onAction (action) {
       if (action.callback) {
-        action.callback()
+        action.callback.apply(this)
       }
     }
   },

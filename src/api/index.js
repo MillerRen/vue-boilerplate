@@ -24,7 +24,10 @@ Vue.http.interceptors.push((request, next) => {
   next((response) => {
     NProgress.done()
     if (response.status >= 400) {
-      Vue.toasted.error(response.statusText)
+      Vue.toastr({
+        message: response.statusText,
+        type: 'danger'
+      })
     }
     return response
   })
