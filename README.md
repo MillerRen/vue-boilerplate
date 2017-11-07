@@ -1,6 +1,6 @@
 # vue-boilerplate
 
-> Vue 2.0 boilerplate，based on webpack and es6，includes vuex，vue-router，vue-resource, vee-validate
+> Vue 2.0 boilerplate，based on webpack and es6，includes vuex，vue-router，vue-resource, vuelidate
 
 ## Demo
 
