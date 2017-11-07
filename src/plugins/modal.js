@@ -1,12 +1,23 @@
 import Vue from 'vue'
 import Modal from '@/components/Modal'
 
-Vue.component('modal', Modal)
+const ModalConstructor = Vue.extend(Modal)
+
+function modal (opts) {
+  var instance = new ModalConstructor({
+    propsData: opts
+  })
+  if (opts.component) {
+    instance.$options.components[opts.name] = opts.component
+  }
+  instance.$mount()
+  document.body.appendChild(instance.$el)
+  return instance
+}
 
 function install (opts) {
-  Vue.prototype.$modal = function (opts) {
-    return this.$root.modal(opts)
-  }
+  Vue.prototype.$modal = modal
+  Vue.modal = modal
 }
 
 export default {
