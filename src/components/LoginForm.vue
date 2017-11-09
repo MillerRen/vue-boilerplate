@@ -1,17 +1,11 @@
 <template>
   <form class="form view-login-form" @submit.prevent="submit(account)">
-    <div class="form-group" :class="{'has-error': $v.account.email.$error}">
-      <label for="">email</label>
+    <form-group :field="$v.account.email" label="email" name="email">
       <input type="text" name="email" class="form-control" placeholder="email" v-model="account.email" @input="$v.account.email.$touch()" />
-      <p class="help-block" v-if="$v.account.email.$dirty&&!$v.account.email.required">Field is required</p>
-      <p class="help-block" v-if="!$v.account.email.email">Invalid email</p>
-    </div>
-    <div class="form-group" :class="{'has-error': $v.account.password.$error}">
-      <label for="">password</label>
+    </form-group>
+    <form-group :field="$v.account.password" label="password" name="password">
       <input type="password" class="form-control" name="password" placeholder="password" v-model="account.password" @input="$v.account.password.$touch()" />
-      <p class="help-block" v-if="$v.account.password.$dirty&&!$v.account.password.required">Field is required</p>
-      <p class="help-block" v-if="$v.account.password.$dirty&&!$v.account.password.minLength">Field must have at least {{ $v.account.password.$params.minLength.min }} characters.</p>
-    </div>
+    </form-group>
     <div class="form-group">
       <button type="submit" class="btn btn-primary btn-block">login</button>
     </div>
