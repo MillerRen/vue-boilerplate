@@ -11,6 +11,7 @@ import '@/validators'
 import '@/directives'
 import '@/filters'
 import '@/mixins'
+import '@/locales'
 import '@/components'
 
 Vue.config.productionTip = false
