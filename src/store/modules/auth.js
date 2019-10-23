@@ -26,7 +26,7 @@ const mutations = {
 }
 
 const actions = {
-  login ({commit}, data) {
+  login ({ commit }, data) {
     return API.Auth.save(data)
       .then((res) => {
         commit(AUTH_LOGIN_SUCCESS, res.body)
@@ -36,7 +36,7 @@ const actions = {
         return Promise.reject(res)
       })
   },
-  logout ({commit}) {
+  logout ({ commit }) {
     commit(AUTH_LOGOUT)
   }
 }

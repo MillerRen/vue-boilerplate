@@ -8,7 +8,7 @@ const API_ROOT = process.env.API_ROOT
 Vue.use(VueResource)
 
 Vue.http.options.crossOrigin = true
-Vue.http.options.xhr = {withCredentials: true}
+Vue.http.options.xhr = { withCredentials: true }
 Vue.http.options.root = API_ROOT
 // Vue.http.options.emulateJSON = true
 
