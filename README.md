@@ -1,5 +1,7 @@
 # vue-boilerplate
 
+>> A vue boilerplate for build huge Single Page Application.
+
 ## Project setup
 ```
 npm install
