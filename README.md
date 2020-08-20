@@ -3,6 +3,12 @@
 >> A vue boilerplate for building huge Single Page Application.
 
 ## Project setup
+
+```
+cp ./src/setup.production.ts ./src/setup.development.ts 
+// We can modify setup.development.ts for developing. e.g mocking, reduce routes for high performence
+```
+
 ```
 npm install
 ```
