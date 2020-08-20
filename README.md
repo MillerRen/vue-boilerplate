@@ -1,6 +1,6 @@
 # vue-boilerplate
 
->> A vue boilerplate for build huge Single Page Application.
+>> A vue boilerplate for building huge Single Page Application.
 
 ## Project setup
 ```
